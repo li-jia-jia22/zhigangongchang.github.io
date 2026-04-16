@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>联系我们 · 智感工厂</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    :root { --hw-red: #cf0a2c; }
+    .hw-container { max-width: 1400px; margin: 0 auto; padding: 0 24px; }
+    .btn-primary { background: var(--hw-red); color: white; padding: 14px 40px; border-radius: 30px; font-weight: 500; transition: all 0.3s; border: 1px solid var(--hw-red); display: inline-block; }
+    .btn-primary:hover { background: transparent; color: var(--hw-red); }
+    .nav-link { position: relative; transition: color 0.2s; }
+    .nav-link::after { content: ''; position: absolute; bottom: -6px; left: 0; width: 0; height: 2px; background: var(--hw-red); transition: width 0.3s; }
+    .nav-link:hover::after, .nav-link.active::after { width: 100%; }
+    .nav-link:hover, .nav-link.active { color: var(--hw-red) !important; }
+    .contact-card { background: white; border-radius: 20px; padding: 40px; box-shadow: 0 10px 40px rgba(0,0,0,0.08); }
+    .form-input { width: 100%; padding: 16px 20px; border: 2px solid #e5e7eb; border-radius: 12px; font-size: 16px; transition: all 0.3s; background: #fafafa; }
+    .form-input:focus { outline: none; border-color: var(--hw-red); background: white; }
+    .info-item { display: flex; align-items: flex-start; gap: 16px; padding: 20px; background: #f9fafb; border-radius: 16px; transition: all 0.3s; }
+    .info-item:hover { background: #f3f4f6; transform: translateX(4px); }
+    .info-icon { width: 48px; height: 48px; background: linear-gradient(135deg, rgba(207,10,44,0.1) 0%, rgba(207,10,44,0.05) 100%); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: var(--hw-red); font-size: 20px; flex-shrink: 0; }
+  </style>
+</head>
+<body class="bg-white">
+<!-- 导航栏 -->
+<header id="navbar" class="fixed top-0 w-full z-50 bg-white/95 backdrop-blur-sm shadow-sm">
+  <div class="hw-container flex justify-between items-center py-4">
+    <a href="index.html" class="flex items-center gap-2">
+      <img src="images/logo.jpg" class="h-10 rounded">
+      <span class="text-xl font-semibold text-gray-800">智感工厂</span>
+    </a>
+    <nav class="hidden md:flex space-x-8 font-medium text-gray-700">
+      <a href="index.html" class="nav-link">首页</a>
+      <a href="about.html" class="nav-link">关于我们</a>
+      <a href="products.html" class="nav-link">产品服务</a>
+      <a href="news.html" class="nav-link">新闻资讯</a>
+      <a href="contact.html" class="nav-link active">联系我们</a>
+    </nav>
+    <div class="hidden md:block"><a href="contact.html" class="btn-primary text-sm">预约演示</a></div>
+    <button id="menu-btn" class="md:hidden text-2xl text-gray-700"><i class="fas fa-bars"></i></button>
+  </div>
+</header>
+
+<main class="pt-20">
+  <!-- Hero区域 -->
+  <section class="relative bg-gradient-to-br from-gray-900 via-gray-800 to-[#1a1a2e] min-h-[400px] flex items-center overflow-hidden">
+    <div class="absolute inset-0 opacity-20">
+      <div class="absolute top-20 right-20 w-[500px] h-[500px] bg-[#cf0a2c] rounded-full blur-[180px]"></div>
+    </div>
+    <div class="hw-container relative z-10 py-16">
+      <div class="text-center max-w-3xl mx-auto" data-aos="fade-up">
+        <span class="text-[#cf0a2c] font-semibold tracking-wide">CONTACT</span>
+        <h1 class="text-5xl font-bold text-white mt-4 mb-4">联系我们</h1>
+        <p class="text-xl text-gray-400">免费试用30天 · 专家团队一对一解答</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 联系方式卡片 -->
+  <section class="py-12 bg-gray-50">
+    <div class="hw-container">
+      <div class="grid md:grid-cols-3 gap-6 -mt-20 relative z-10">
+        <div class="contact-card text-center" data-aos="fade-up">
+          <div class="w-16 h-16 bg-[#cf0a2c]/10 rounded-2xl flex items-center justify-center text-[#cf0a2c] text-2xl mx-auto mb-4">
+            <i class="fas fa-phone-alt"></i>
+          </div>
+          <h3 class="text-lg font-bold text-gray-900 mb-2">电话咨询</h3>
+          <p class="text-gray-600 mb-4">工作日 9:00-18:00</p>
+          <a href="tel:13839881612" class="text-[#cf0a2c] font-semibold text-lg hover:underline">138-3988-1612</a>
+        </div>
+        
+        <div class="contact-card text-center" data-aos="fade-up" data-aos-delay="100">
+          <div class="w-16 h-16 bg-blue-500/10 rounded-2xl flex items-center justify-center text-blue-600 text-2xl mx-auto mb-4">
+            <i class="fas fa-envelope"></i>
+          </div>
+          <h3 class="text-lg font-bold text-gray-900 mb-2">邮件联系</h3>
+          <p class="text-gray-600 mb-4">24小时内回复</p>
+          <a href="mailto:contact@zhigan.com" class="text-blue-600 font-semibold text-lg hover:underline">contact@zhigan.com</a>
+        </div>
+        
+        <div class="contact-card text-center" data-aos="fade-up" data-aos-delay="200">
+          <div class="w-16 h-16 bg-green-500/10 rounded-2xl flex items-center justify-center text-green-600 text-2xl mx-auto mb-4">
+            <i class="fab fa-weixin"></i>
+          </div>
+          <h3 class="text-lg font-bold text-gray-900 mb-2">微信咨询</h3>
+          <p class="text-gray-600 mb-4">扫码添加客服</p>
+          <span class="text-green-600 font-semibold">智感工厂官方</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 表单区域 -->
+  <section class="py-20 bg-white">
+    <div class="hw-container">
+      <div class="grid md:grid-cols-2 gap-16">
+        <!-- 表单 -->
+        <div data-aos="fade-right">
+          <span class="text-[#cf0a2c] font-semibold tracking-wide">GET IN TOUCH</span>
+          <h2 class="text-4xl font-bold text-gray-900 mt-3 mb-6">获取演示与报价</h2>
+          <p class="text-gray-600 mb-8">填写以下信息，我们的专家团队将在24小时内与您联系，为您提供个性化解决方案。</p>
+          
+          <form class="space-y-6">
+            <div class="grid md:grid-cols-2 gap-6">
+              <div>
+                <label class="block text-sm font-medium text-gray-700 mb-2">您的姓名 *</label>
+                <input type="text" placeholder="请输入姓名" class="form-input">
+              </div>
+              <div>
+                <label class="block text-sm font-medium text-gray-700 mb-2">联系电话 *</label>
+                <input type="tel" placeholder="请输入手机号" class="form-input">
+              </div>
+            </div>
+            
+            <div>
+              <label class="block text-sm font-medium text-gray-700 mb-2">公司名称</label>
+              <input type="text" placeholder="请输入公司全称" class="form-input">
+            </div>
+            
+            <div>
+              <label class="block text-sm font-medium text-gray-700 mb-2">工厂类型</label>
+              <select class="form-input">
+                <option value="">请选择工厂类型</option>
+                <option value="electronic">电子组装厂</option>
+                <option value="machinery">机械加工</option>
+                <option value="warehouse">仓储物流</option>
+                <option value="food">食品加工</option>
+                <option value="construction">建筑施工</option>
+                <option value="other">其他</option>
+              </select>
+            </div>
+            
+            <div>
+              <label class="block text-sm font-medium text-gray-700 mb-2">需求描述</label>
+              <textarea placeholder="请描述您的具体需求，如监控点位数量、特殊要求等..." rows="4" class="form-input resize-none"></textarea>
+            </div>
+            
+            <button type="submit" class="btn-primary w-full md:w-auto text-lg">
+              <i class="fas fa-paper-plane mr-2"></i>提交咨询
+            </button>
+          </form>
+        </div>
+        
+        <!-- 联系信息 -->
+        <div data-aos="fade-left">
+          <span class="text-[#cf0a2c] font-semibold tracking-wide">WHY US</span>
+          <h2 class="text-4xl font-bold text-gray-900 mt-3 mb-6">选择智感工厂</h2>
+          
+          <div class="space-y-4">
+            <div class="info-item">
+              <div class="info-icon">
+                <i class="fas fa-gift"></i>
+              </div>
+              <div>
+                <h4 class="font-bold text-gray-900 mb-1">免费试用30天</h4>
+                <p class="text-gray-600 text-sm">提供全套硬件借用+软件功能，零成本验证效果</p>
+              </div>
+            </div>
+            
+            <div class="info-item">
+              <div class="info-icon">
+                <i class="fas fa-user-tie"></i>
+              </div>
+              <div>
+                <h4 class="font-bold text-gray-900 mb-1">专家一对一指导</h4>
+                <p class="text-gray-600 text-sm">7×12小时技术支持，快速解决使用问题</p>
+              </div>
+            </div>
+            
+            <div class="info-item">
+              <div class="info-icon">
+                <i class="fas fa-tools"></i>
+              </div>
+              <div>
+                <h4 class="font-bold text-gray-900 mb-1">上门安装调试</h4>
+                <p class="text-gray-600 text-sm">专业团队现场部署，1天内完成上线</p>
+              </div>
+            </div>
+            
+            <div class="info-item">
+              <div class="info-icon">
+                <i class="fas fa-shield-alt"></i>
+              </div>
+              <div>
+                <h4 class="font-bold text-gray-900 mb-1">效果承诺</h4>
+                <p class="text-gray-600 text-sm">识别准确率不低于92%，7×24小时稳定运行</p>
+              </div>
+            </div>
+          </div>
+          
+          <!-- 客户评价 -->
+          <div class="mt-8 p-6 bg-gradient-to-br from-gray-900 to-gray-800 rounded-2xl text-white">
+            <div class="flex items-center gap-1 mb-3">
+              <i class="fas fa-star text-yellow-400"></i>
+              <i class="fas fa-star text-yellow-400"></i>
+              <i class="fas fa-star text-yellow-400"></i>
+              <i class="fas fa-star text-yellow-400"></i>
+              <i class="fas fa-star text-yellow-400"></i>
+            </div>
+            <p class="text-gray-300 text-sm italic mb-4">"部署智感系统后，我们的违规事件下降了67%，安全管理人员的工作效率提升明显。"</p>
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 bg-[#cf0a2c] rounded-full flex items-center justify-center text-white font-bold">李</div>
+              <div>
+                <div class="font-medium">李厂长</div>
+                <div class="text-xs text-gray-400">某电子加工厂</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ区域 -->
+  <section class="py-20 bg-gray-50">
+    <div class="hw-container">
+      <div class="text-center mb-12" data-aos="fade-up">
+        <span class="text-[#cf0a2c] font-semibold tracking-wide">FAQ</span>
+        <h2 class="text-4xl font-bold text-gray-900 mt-3">常见问题</h2>
+      </div>
+      
+      <div class="max-w-3xl mx-auto space-y-4" data-aos="fade-up">
+        <div class="bg-white rounded-xl p-6 shadow-sm">
+          <h4 class="font-bold text-gray-900 mb-2"><i class="fas fa-question-circle text-[#cf0a2c] mr-2"></i>系统安装需要多长时间？</h4>
+          <p class="text-gray-600 text-sm pl-7">单点位免布线设计，1天内即可完成部署上线，无需停工改造。</p>
+        </div>
+        <div class="bg-white rounded-xl p-6 shadow-sm">
+          <h4 class="font-bold text-gray-900 mb-2"><i class="fas fa-question-circle text-[#cf0a2c] mr-2"></i>断网后系统还能工作吗？</h4>
+          <p class="text-gray-600 text-sm pl-7">MaixCAM边缘设备支持离线运行，断网后继续识别和本地存储，网络恢复后自动同步。</p>
+        </div>
+        <div class="bg-white rounded-xl p-6 shadow-sm">
+          <h4 class="font-bold text-gray-900 mb-2"><i class="fas fa-question-circle text-[#cf0a2c] mr-2"></i>支持哪些摄像头接入？</h4>
+          <p class="text-gray-600 text-sm pl-7">支持主流USB摄像头和网络摄像头，标准版支持最多4路并发接入。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- 页脚 -->
+<footer class="bg-gray-900 text-gray-300 py-12">
+  <div class="hw-container grid grid-cols-1 md:grid-cols-4 gap-8">
+    <div>
+      <div class="flex items-center gap-2 mb-4">
+        <img src="images/logo.jpg" class="h-8 rounded">
+        <span class="text-white font-semibold text-lg">智感工厂</span>
+      </div>
+      <p class="text-sm">守护每一位劳动者的安全</p>
+    </div>
+    <div>
+      <h4 class="text-white font-medium mb-4">快速链接</h4>
+      <ul class="space-y-2 text-sm">
+        <li><a href="about.html" class="hover:text-white">关于我们</a></li>
+        <li><a href="products.html" class="hover:text-white">产品服务</a></li>
+        <li><a href="news.html" class="hover:text-white">新闻资讯</a></li>
+        <li><a href="contact.html" class="hover:text-white">联系我们</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4 class="text-white font-medium mb-4">产品</h4>
+      <ul class="space-y-2 text-sm">
+        <li>安全帽/反光衣识别</li>
+        <li>温湿度监测</li>
+        <li>边缘离线大模型</li>
+        <li>多工厂管理平台</li>
+      </ul>
+    </div>
+    <div>
+      <h4 class="text-white font-medium mb-4">联系方式</h4>
+      <p class="text-sm"><i class="fas fa-phone-alt mr-2"></i> 13839881612</p>
+      <p class="text-sm mt-2"><i class="fas fa-envelope mr-2"></i> contact@zhigan.com</p>
+    </div>
+  </div>
+  <div class="border-t border-gray-700 mt-8 pt-6 text-center text-xs">
+    2026 智感工厂 · 智感物联科技有限公司
+  </div>
+</footer>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script src="js/main.js"></script>
+<script>AOS.init();</script>
+</body>
+</html>

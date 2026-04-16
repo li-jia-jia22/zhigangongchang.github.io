@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+  <title>智感工厂 · 智能安全监测系统</title>
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- 自定义微调 -->
+  <link rel="stylesheet" href="css/style.css">
+  <!-- Swiper 轮播核心库 -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <!-- AOS 滚动动画库 -->
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
+  <!-- Font Awesome 图标库 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    /* 华为风格定制：红色强调、干净留白 */
+    :root {
+      --hw-red: #cf0a2c;
+      --hw-gray-light: #f5f5f5;
+      --hw-text-dark: #222;
+      --hw-text-gray: #555;
+    }
+    body {
+      font-family: 'Helvetica Neue', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+      color: var(--hw-text-dark);
+    }
+    .hw-container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+    .nav-link {
+      position: relative;
+      transition: color 0.2s;
+    }
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: -6px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--hw-red);
+      transition: width 0.3s;
+    }
+    .nav-link:hover::after,
+    .nav-link.active::after {
+      width: 100%;
+    }
+    .nav-link:hover,
+    .nav-link.active {
+      color: var(--hw-red) !important;
+    }
+    .btn-primary {
+      background: var(--hw-red);
+      color: white;
+      padding: 10px 28px;
+      border-radius: 30px;
+      font-weight: 500;
+      transition: all 0.3s;
+      border: 1px solid var(--hw-red);
+    }
+    .btn-primary:hover {
+      background: transparent;
+      color: var(--hw-red);
+    }
+    .btn-outline {
+      border: 1px solid #333;
+      color: #333;
+      padding: 10px 28px;
+      border-radius: 30px;
+      font-weight: 500;
+      transition: all 0.3s;
+    }
+    .btn-outline:hover {
+      background: #333;
+      color: white;
+    }
+    .card-hover {
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .card-hover:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 30px -10px rgba(0,0,0,0.15);
+    }
+    /* 轮播文字阴影 */
+    .swiper-slide .slide-content {
+      text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+    }
+    /* 移动端菜单 */
+    #mobile-menu {
+      transition: all 0.3s;
+    }
+  </style>
+</head>
+<body class="bg-white">
+
+<!-- 导航栏 -->
+<header id="navbar" class="fixed top-0 left-0 w-full z-50 bg-white/95 backdrop-blur-sm shadow-sm transition-all duration-300">
+  <div class="hw-container flex justify-between items-center py-4">
+    <!-- Logo -->
+    <a href="index.html" class="flex items-center gap-2">
+      <img src="images/logo.jpg" alt="智感工厂" class="h-10 w-auto object-contain rounded">
+      <span class="text-xl font-semibold text-gray-800">智感工厂</span>
+    </a>
+    <!-- 桌面导航 -->
+    <nav class="hidden md:flex items-center space-x-8 font-medium text-gray-700">
+      <a href="index.html" class="nav-link active">首页</a>
+      <a href="about.html" class="nav-link">关于我们</a>
+      <a href="products.html" class="nav-link">产品服务</a>
+      <a href="news.html" class="nav-link">新闻资讯</a>
+      <a href="contact.html" class="nav-link">联系我们</a>
+    </nav>
+    <div class="hidden md:block">
+      <a href="contact.html" class="btn-primary text-sm">预约演示</a>
+    </div>
+    <!-- 移动端汉堡按钮 -->
+    <button id="menu-btn" class="md:hidden text-2xl text-gray-700 focus:outline-none">
+      <i class="fas fa-bars"></i>
+    </button>
+  </div>
+  <!-- 移动端下拉菜单 -->
+  <div id="mobile-menu" class="md:hidden hidden bg-white border-t border-gray-100 pb-4 px-6">
+    <nav class="flex flex-col space-y-3 pt-3 font-medium text-gray-700">
+      <a href="index.html" class="py-2 border-b border-gray-100 nav-link active">首页</a>
+      <a href="about.html" class="py-2 border-b border-gray-100 nav-link">关于我们</a>
+      <a href="products.html" class="py-2 border-b border-gray-100 nav-link">产品服务</a>
+      <a href="news.html" class="py-2 border-b border-gray-100 nav-link">新闻资讯</a>
+      <a href="contact.html" class="py-2 nav-link">联系我们</a>
+    </nav>
+  </div>
+</header>
+
+<main class="pt-20">
+  <!-- 三个切换页面 -->
+  <section class="bg-gradient-to-br from-gray-900 via-gray-800 to-[#1a1a2e] min-h-[600px] md:min-h-[700px] relative overflow-hidden">
+    <!-- 背景装饰 -->
+    <div class="absolute inset-0 opacity-10">
+      <div class="absolute top-20 left-10 w-72 h-72 bg-[#cf0a2c] rounded-full blur-[120px]"></div>
+      <div class="absolute bottom-20 right-10 w-96 h-96 bg-blue-600 rounded-full blur-[150px]"></div>
+    </div>
+    
+    <!-- 页面切换Tab -->
+    <div class="hw-container relative z-10 pt-8">
+      <div class="flex flex-wrap justify-center gap-2 md:gap-4 mb-8">
+        <button onclick="switchPage(0)" id="tab-0" class="tab-btn px-6 py-3 rounded-full font-medium transition-all duration-300 bg-[#cf0a2c] text-white shadow-lg">
+          <i class="fas fa-network-wired mr-2"></i>技术架构
+        </button>
+        <button onclick="switchPage(1)" id="tab-1" class="tab-btn px-6 py-3 rounded-full font-medium transition-all duration-300 bg-white/10 text-white hover:bg-white/20">
+          <i class="fas fa-industry mr-2"></i>应用场景
+        </button>
+        <button onclick="switchPage(2)" id="tab-2" class="tab-btn px-6 py-3 rounded-full font-medium transition-all duration-300 bg-white/10 text-white hover:bg-white/20">
+          <i class="fas fa-award mr-2"></i>创新优势
+        </button>
+      </div>
+    </div>
+
+    <!-- 页面内容容器 -->
+    <div class="hw-container relative z-10 pb-16">
+      
+      <!-- 页面1：技术架构 -->
+      <div id="page-0" class="page-content">
+        <div class="grid md:grid-cols-2 gap-8 items-center">
+          <div class="text-white space-y-6" data-aos="fade-right">
+            <div class="inline-block px-4 py-1 bg-[#cf0a2c]/20 border border-[#cf0a2c]/40 rounded-full text-sm text-[#ff6b6b]">
+              端-边-云-应用 四层协同
+            </div>
+            <h1 class="text-4xl md:text-5xl font-bold leading-tight">
+              全链路智能安全<br/>监测架构
+            </h1>
+            <p class="text-gray-300 text-lg leading-relaxed">
+              采用"端-边-云-应用"四层架构，实现从数据采集到智能决策的完整闭环。单片机低功耗采集，MaixCAM边缘AI推理，云端数据管理，打造高性价比工厂安全方案。
+            </p>
+            <div class="grid grid-cols-2 gap-4 pt-4">
+              <div class="bg-white/5 backdrop-blur-sm rounded-xl p-4 border border-white/10">
+                <div class="text-[#cf0a2c] text-2xl mb-2"><i class="fas fa-microchip"></i></div>
+                <div class="text-white font-semibold">STC51单片机</div>
+                <div class="text-gray-400 text-sm">温湿度采集单元</div>
+              </div>
+              <div class="bg-white/5 backdrop-blur-sm rounded-xl p-4 border border-white/10">
+                <div class="text-[#cf0a2c] text-2xl mb-2"><i class="fas fa-brain"></i></div>
+                <div class="text-white font-semibold">MaixCAM</div>
+                <div class="text-gray-400 text-sm">边缘AI视觉单元</div>
+              </div>
+              <div class="bg-white/5 backdrop-blur-sm rounded-xl p-4 border border-white/10">
+                <div class="text-[#cf0a2c] text-2xl mb-2"><i class="fas fa-cloud"></i></div>
+                <div class="text-white font-semibold">FastAPI云端</div>
+                <div class="text-gray-400 text-sm">数据存储与管理</div>
+              </div>
+              <div class="bg-white/5 backdrop-blur-sm rounded-xl p-4 border border-white/10">
+                <div class="text-[#cf0a2c] text-2xl mb-2"><i class="fas fa-mobile-alt"></i></div>
+                <div class="text-white font-semibold">Web+小程序</div>
+                <div class="text-gray-400 text-sm">多终端应用层</div>
+              </div>
+            </div>
+            <div class="flex gap-4 pt-4">
+              <a href="products.html" class="btn-primary inline-block">查看技术详情</a>
+              <a href="contact.html" class="px-6 py-3 rounded-full border border-white/30 text-white hover:bg-white/10 transition inline-block">预约演示</a>
+            </div>
+          </div>
+          <div class="relative" data-aos="fade-left">
+            <div class="relative rounded-2xl overflow-hidden shadow-2xl border border-white/10">
+              <img src="images/技术路线图.png" alt="技术架构图" class="w-full h-auto object-cover">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+            </div>
+            <!-- 浮动数据卡片 -->
+            <div class="absolute -bottom-4 -left-4 bg-white rounded-xl p-4 shadow-xl" data-aos="zoom-in" data-aos-delay="300">
+              <div class="flex items-center gap-3">
+                <div class="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center text-green-600">
+                  <i class="fas fa-check"></i>
+                </div>
+                <div>
+                  <div class="text-sm text-gray-500">系统稳定率</div>
+                  <div class="text-xl font-bold text-gray-800">99.7%</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 页面2：应用场景 -->
+      <div id="page-1" class="page-content hidden">
+        <div class="text-center mb-12" data-aos="fade-up">
+          <div class="inline-block px-4 py-1 bg-blue-500/20 border border-blue-500/40 rounded-full text-sm text-blue-300 mb-4">
+            直击工厂安全痛点
+          </div>
+          <h2 class="text-4xl md:text-5xl font-bold text-white mb-4">
+            守护每一位劳动者的安全
+          </h2>
+          <p class="text-gray-300 text-lg max-w-3xl mx-auto">
+            我国每年发生工贸企业安全事故超3000起，中小工厂因资金有限、管理粗放成为事故高发区。<br/>
+            我们用物联网技术，让安全管理从"事后追责"转向"事前预警"。
+          </p>
+        </div>
+        
+        <div class="grid md:grid-cols-3 gap-6 mb-12">
+          <!-- 场景卡片1 -->
+          <div class="bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10 hover:border-[#cf0a2c]/50 transition-all duration-300 group" data-aos="fade-up" data-aos-delay="100">
+            <div class="w-14 h-14 bg-gradient-to-br from-[#cf0a2c] to-[#ff6b6b] rounded-xl flex items-center justify-center text-white text-2xl mb-4 group-hover:scale-110 transition-transform">
+              <i class="fas fa-hard-hat"></i>
+            </div>
+            <h3 class="text-xl font-bold text-white mb-3">人员违规监测</h3>
+            <ul class="space-y-2 text-gray-400 text-sm">
+              <li><i class="fas fa-check text-[#cf0a2c] mr-2"></i>安全帽佩戴识别</li>
+              <li><i class="fas fa-check text-[#cf0a2c] mr-2"></i>反光衣穿戴检测</li>
+              <li><i class="fas fa-check text-[#cf0a2c] mr-2"></i>危险区域闯入告警</li>
+              <li><i class="fas fa-check text-[#cf0a2c] mr-2"></i>烟火实时识别</li>
+            </ul>
+            <div class="mt-4 pt-4 border-t border-white/10">
+              <div class="text-2xl font-bold text-[#cf0a2c]">96.2%</div>
+              <div class="text-sm text-gray-500">识别准确率</div>
+            </div>
+          </div>
+
+          <!-- 场景卡片2 -->
+          <div class="bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10 hover:border-blue-500/50 transition-all duration-300 group" data-aos="fade-up" data-aos-delay="200">
+            <div class="w-14 h-14 bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl flex items-center justify-center text-white text-2xl mb-4 group-hover:scale-110 transition-transform">
+              <i class="fas fa-thermometer-half"></i>
+            </div>
+            <h3 class="text-xl font-bold text-white mb-3">环境监测</h3>
+            <ul class="space-y-2 text-gray-400 text-sm">
+              <li><i class="fas fa-check text-blue-500 mr-2"></i>实时温湿度采集</li>
+              <li><i class="fas fa-check text-blue-500 mr-2"></i>异常阈值预警</li>
+              <li><i class="fas fa-check text-blue-500 mr-2"></i>LCD本地显示</li>
+              <li><i class="fas fa-check text-blue-500 mr-2"></i>数据云端同步</li>
+            </ul>
+            <div class="mt-4 pt-4 border-t border-white/10">
+              <div class="text-2xl font-bold text-blue-500">±0.5℃</div>
+              <div class="text-sm text-gray-500">温度精度</div>
+            </div>
+          </div>
+
+          <!-- 场景卡片3 -->
+          <div class="bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10 hover:border-green-500/50 transition-all duration-300 group" data-aos="fade-up" data-aos-delay="300">
+            <div class="w-14 h-14 bg-gradient-to-br from-green-500 to-green-600 rounded-xl flex items-center justify-center text-white text-2xl mb-4 group-hover:scale-110 transition-transform">
+              <i class="fas fa-bell"></i>
+            </div>
+            <h3 class="text-xl font-bold text-white mb-3">智能告警</h3>
+            <ul class="space-y-2 text-gray-400 text-sm">
+              <li><i class="fas fa-check text-green-500 mr-2"></i>TTS语音播报</li>
+              <li><i class="fas fa-check text-green-500 mr-2"></i>违规自动抓拍</li>
+              <li><i class="fas fa-check text-green-500 mr-2"></i>秒级推送通知</li>
+              <li><i class="fas fa-check text-green-500 mr-2"></i>历史记录追溯</li>
+            </ul>
+            <div class="mt-4 pt-4 border-t border-white/10">
+              <div class="text-2xl font-bold text-green-500">0.6s</div>
+              <div class="text-sm text-gray-500">告警响应时间</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 适用行业标签 -->
+        <div class="flex flex-wrap justify-center gap-3" data-aos="fade-up">
+          <span class="px-4 py-2 bg-white/10 rounded-full text-gray-300 text-sm"><i class="fas fa-microchip mr-2 text-blue-400"></i>电子组装厂</span>
+          <span class="px-4 py-2 bg-white/10 rounded-full text-gray-300 text-sm"><i class="fas fa-cog mr-2 text-gray-400"></i>机械加工</span>
+          <span class="px-4 py-2 bg-white/10 rounded-full text-gray-300 text-sm"><i class="fas fa-warehouse mr-2 text-yellow-400"></i>仓储物流</span>
+          <span class="px-4 py-2 bg-white/10 rounded-full text-gray-300 text-sm"><i class="fas fa-utensils mr-2 text-pink-400"></i>食品加工</span>
+          <span class="px-4 py-2 bg-white/10 rounded-full text-gray-300 text-sm"><i class="fas fa-hard-hat mr-2 text-orange-400"></i>建筑施工</span>
+          <span class="px-4 py-2 bg-white/10 rounded-full text-gray-300 text-sm"><i class="fas fa-bolt mr-2 text-yellow-500"></i>配电房</span>
+        </div>
+      </div>
+
+      <!-- 页面3：创新优势 -->
+      <div id="page-2" class="page-content hidden">
+        <div class="grid md:grid-cols-2 gap-12 items-center">
+          <div class="order-2 md:order-1 relative" data-aos="fade-right">
+            <div class="grid grid-cols-2 gap-4">
+              <div class="space-y-4">
+                <div class="bg-gradient-to-br from-[#cf0a2c] to-[#ff6b6b] rounded-2xl p-6 text-white" data-aos="zoom-in" data-aos-delay="100">
+                  <div class="text-4xl font-bold mb-2">96.2%</div>
+                  <div class="text-sm opacity-90">安全帽识别准确率</div>
+                </div>
+                <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20" data-aos="zoom-in" data-aos-delay="200">
+                  <div class="text-3xl font-bold text-white mb-2">72h</div>
+                  <div class="text-sm text-gray-400">连续稳定运行</div>
+                </div>
+              </div>
+              <div class="space-y-4 mt-8">
+                <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20" data-aos="zoom-in" data-aos-delay="300">
+                  <div class="text-3xl font-bold text-[#cf0a2c] mb-2">8路</div>
+                  <div class="text-sm text-gray-400">摄像头并发</div>
+                </div>
+                <div class="bg-gradient-to-br from-blue-600 to-blue-800 rounded-2xl p-6 text-white" data-aos="zoom-in" data-aos-delay="400">
+                  <div class="text-3xl font-bold mb-2">1/5</div>
+                  <div class="text-sm opacity-90">商用平台成本</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="order-1 md:order-2 text-white" data-aos="fade-left">
+            <div class="inline-block px-4 py-1 bg-[#cf0a2c]/20 border border-[#cf0a2c]/40 rounded-full text-sm text-[#ff6b6b] mb-4">
+              三大核心创新
+            </div>
+            <h2 class="text-4xl md:text-5xl font-bold mb-6">
+              技术引领<br/>成本领先
+            </h2>
+            
+            <div class="space-y-6">
+              <!-- 创新点1 -->
+              <div class="flex gap-4">
+                <div class="w-12 h-12 bg-[#cf0a2c] rounded-xl flex items-center justify-center text-white text-xl flex-shrink-0">
+                  <i class="fas fa-layer-group"></i>
+                </div>
+                <div>
+                  <h4 class="text-xl font-bold text-white mb-2">温湿度+AI视觉双模态融合</h4>
+                  <p class="text-gray-400 text-sm">首次将环境参数与人员行为联合判定，当温湿度异常与人员违规同时发生时，系统联合判定并提高报警等级，误报率降低40%。</p>
+                </div>
+              </div>
+
+              <!-- 创新点2 -->
+              <div class="flex gap-4">
+                <div class="w-12 h-12 bg-blue-600 rounded-xl flex items-center justify-center text-white text-xl flex-shrink-0">
+                  <i class="fas fa-wifi-slash"></i>
+                </div>
+                <div>
+                  <h4 class="text-xl font-bold text-white mb-2">边缘侧离线大模型运行</h4>
+                  <p class="text-gray-400 text-sm">MaixCAM内置TinyLlama(1.1B)轻量大模型，断网仍可独立推理、语音播报、本地存储。网络恢复后自动同步，满足保密车间与弱网环境需求。</p>
+                </div>
+              </div>
+
+              <!-- 创新点3 -->
+              <div class="flex gap-4">
+                <div class="w-12 h-12 bg-green-600 rounded-xl flex items-center justify-center text-white text-xl flex-shrink-0">
+                  <i class="fas fa-users-cog"></i>
+                </div>
+                <div>
+                  <h4 class="text-xl font-bold text-white mb-2">双角色多工厂权限体系</h4>
+                  <p class="text-gray-400 text-sm">普通用户专注本厂实时监控，管理员可跨工厂查看数据、设置阈值、管理子账号。完美适配连锁工厂与园区集中管理需求。</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="flex gap-4 mt-8">
+              <a href="about.html" class="btn-primary inline-block">了解更多</a>
+              <a href="products.html" class="px-6 py-3 rounded-full border border-white/30 text-white hover:bg-white/10 transition inline-block">查看产品</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 核心数据卡片区 -->
+  <section class="py-16 bg-gray-50">
+    <div class="hw-container">
+      <div class="text-center mb-12" data-aos="fade-up">
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-800">让安全监测更智能</h2>
+        <p class="text-gray-500 mt-3 max-w-2xl mx-auto">端-边-云协同，为中小工厂提供高性价比的AI安全方案</p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+        <div class="bg-white p-6 rounded-xl shadow-md card-hover text-center" data-aos="fade-up" data-aos-delay="100">
+          <div class="text-4xl text-[#cf0a2c] mb-3"><i class="fas fa-microchip"></i></div>
+          <div class="text-3xl font-bold text-gray-800"><span class="countup" data-target="96.2">0</span>%</div>
+          <div class="text-gray-500 mt-2">安全帽识别准确率</div>
+        </div>
+        <div class="bg-white p-6 rounded-xl shadow-md card-hover text-center" data-aos="fade-up" data-aos-delay="200">
+          <div class="text-4xl text-[#cf0a2c] mb-3"><i class="fas fa-clock"></i></div>
+          <div class="text-3xl font-bold text-gray-800"><span class="countup" data-target="0.6">0</span>s</div>
+          <div class="text-gray-500 mt-2">违规告警延迟</div>
+        </div>
+        <div class="bg-white p-6 rounded-xl shadow-md card-hover text-center" data-aos="fade-up" data-aos-delay="300">
+          <div class="text-4xl text-[#cf0a2c] mb-3"><i class="fas fa-video"></i></div>
+          <div class="text-3xl font-bold text-gray-800"><span class="countup" data-target="8">0</span>路</div>
+          <div class="text-gray-500 mt-2">并发摄像头</div>
+        </div>
+        <div class="bg-white p-6 rounded-xl shadow-md card-hover text-center" data-aos="fade-up" data-aos-delay="400">
+          <div class="text-4xl text-[#cf0a2c] mb-3"><i class="fas fa-shield-alt"></i></div>
+          <div class="text-3xl font-bold text-gray-800">7×24h</div>
+          <div class="text-gray-500 mt-2">稳定运行</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 产品亮点/视频区域 -->
+  <section class="py-16 bg-white">
+    <div class="hw-container grid md:grid-cols-2 gap-12 items-center">
+      <div data-aos="fade-right">
+        <span class="text-[#cf0a2c] font-semibold tracking-wide">边缘AI · 离线可用</span>
+        <h3 class="text-3xl font-bold mt-2 mb-4">温湿度 + AI视觉 双模态融合监测</h3>
+        <p class="text-gray-600 mb-6 leading-relaxed">首次将环境参数与人员行为联合判定，误报率降低40%。MaixCAM边缘设备内置轻量大模型，断网仍可独立推理、语音播报。</p>
+        <ul class="space-y-3 text-gray-700">
+          <li><i class="fas fa-check-circle text-[#cf0a2c] mr-2"></i> 离线大模型运行 · 保密车间首选</li>
+          <li><i class="fas fa-check-circle text-[#cf0a2c] mr-2"></i> 双角色多工厂权限 · 连锁统一管理</li>
+          <li><i class="fas fa-check-circle text-[#cf0a2c] mr-2"></i> 一键生成EDA报告 · 满足合规</li>
+        </ul>
+        <a href="products.html" class="btn-primary inline-block mt-6">查看产品详情</a>
+      </div>
+      <div class="relative rounded-2xl overflow-hidden shadow-2xl" data-aos="fade-left">
+        <video src="images/演示视频.mp4" controls class="w-full h-auto object-cover" poster="images/摄像头.png"></video>
+      </div>
+    </div>
+  </section>
+
+  <!-- 精选案例与最新动态 -->
+  <section class="py-20 bg-gray-50">
+    <div class="hw-container">
+      <div class="text-center mb-12" data-aos="fade-up">
+        <span class="text-[#cf0a2c] font-semibold tracking-wide">SUCCESS STORIES</span>
+        <h2 class="text-4xl font-bold text-gray-900 mt-3">精选案例与动态</h2>
+        <p class="text-gray-500 mt-4">真实场景验证 · 效果可量化</p>
+      </div>
+
+      <div class="grid md:grid-cols-5 gap-8">
+        <!-- 左侧：精选案例大图 -->
+        <div class="md:col-span-3 bg-white rounded-3xl overflow-hidden shadow-lg" data-aos="fade-right">
+          <div class="relative h-64 md:h-80 overflow-hidden">
+            <img src="images/摄像头.png" alt="成功案例" class="w-full h-full object-cover">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
+            <div class="absolute bottom-4 left-4 right-4">
+              <span class="px-3 py-1 bg-[#cf0a2c] text-white text-sm rounded-full">精选案例</span>
+              <h3 class="text-white text-2xl font-bold mt-2">恩科电子科技：安全合规快速落地</h3>
+            </div>
+          </div>
+          <div class="p-8">
+            <p class="text-gray-600 mb-6 leading-relaxed">车间人员密集、温湿度敏感，预算有限、网络不稳定。部署2套单路监测设备，1天完成部署，不停工、免布线。</p>
+            <div class="grid grid-cols-4 gap-4 mb-6">
+              <div class="text-center p-3 bg-gradient-to-br from-red-50 to-white rounded-xl">
+                <div class="text-[#cf0a2c] font-bold text-xl">96.2%</div>
+                <div class="text-xs text-gray-500">识别准确率</div>
+              </div>
+              <div class="text-center p-3 bg-gradient-to-br from-blue-50 to-white rounded-xl">
+                <div class="text-blue-600 font-bold text-xl">≤0.6s</div>
+                <div class="text-xs text-gray-500">报警延迟</div>
+              </div>
+              <div class="text-center p-3 bg-gradient-to-br from-green-50 to-white rounded-xl">
+                <div class="text-green-600 font-bold text-xl">67%</div>
+                <div class="text-xs text-gray-500">违规下降</div>
+              </div>
+              <div class="text-center p-3 bg-gradient-to-br from-purple-50 to-white rounded-xl">
+                <div class="text-purple-600 font-bold text-xl">7天</div>
+                <div class="text-xs text-gray-500">离线运行</div>
+              </div>
+            </div>
+            <div class="flex items-center justify-between">
+              <div class="flex items-center gap-2 text-sm text-gray-500">
+                <i class="fas fa-map-marker-alt text-[#cf0a2c]"></i> 电子组装行业 · 2026-03
+              </div>
+              <a href="news.html#cases" class="text-[#cf0a2c] font-medium hover:underline">查看详情 <i class="fas fa-arrow-right ml-1"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 右侧：最新动态列表 -->
+        <div class="md:col-span-2 space-y-4" data-aos="fade-left">
+          <div class="flex items-center justify-between mb-4">
+            <h3 class="text-xl font-bold text-gray-900">最新动态</h3>
+            <a href="news.html" class="text-sm text-[#cf0a2c] hover:underline">查看更多 <i class="fas fa-arrow-right"></i></a>
+          </div>
+
+          <!-- 动态1 -->
+          <div class="bg-white rounded-xl p-5 shadow-sm card-hover">
+            <div class="flex items-start gap-4">
+              <div class="w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center text-[#cf0a2c] flex-shrink-0">
+                <i class="fas fa-gavel"></i>
+              </div>
+              <div class="flex-1">
+                <span class="text-xs text-red-600 font-medium">政策利好</span>
+                <h4 class="font-bold text-gray-900 mt-1 hover:text-[#cf0a2c] transition cursor-pointer">国家安全生产法持续加码，智能监测成刚需</h4>
+                <p class="text-gray-500 text-sm mt-1 line-clamp-2">"十四五"智能制造发展规划明确要求风险分级管控与实时预警...</p>
+                <span class="text-xs text-gray-400 mt-2 inline-block">2026-04-10</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- 动态2 -->
+          <div class="bg-white rounded-xl p-5 shadow-sm card-hover">
+            <div class="flex items-start gap-4">
+              <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center text-blue-600 flex-shrink-0">
+                <i class="fas fa-chart-line"></i>
+              </div>
+              <div class="flex-1">
+                <span class="text-xs text-blue-600 font-medium">市场分析</span>
+                <h4 class="font-bold text-gray-900 mt-1 hover:text-[#cf0a2c] transition cursor-pointer">6300万中小制造企业，安全智能化率不足8%</h4>
+                <p class="text-gray-500 text-sm mt-1 line-clamp-2">据CNNIC报告，普惠型工业安全产品具备万亿级市场潜力...</p>
+                <span class="text-xs text-gray-400 mt-2 inline-block">2026-03-25</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- 动态3 -->
+          <div class="bg-white rounded-xl p-5 shadow-sm card-hover">
+            <div class="flex items-start gap-4">
+              <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center text-green-600 flex-shrink-0">
+                <i class="fas fa-award"></i>
+              </div>
+              <div class="flex-1">
+                <span class="text-xs text-green-600 font-medium">企业荣誉</span>
+                <h4 class="font-bold text-gray-900 mt-1 hover:text-[#cf0a2c] transition cursor-pointer">荣获河南省特色软件学院重点支持</h4>
+                <p class="text-gray-500 text-sm mt-1 line-clamp-2">项目依托省级产教融合平台，获得资金与资源支持...</p>
+                <span class="text-xs text-gray-400 mt-2 inline-block">2026-03-10</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- 查看更多按钮 -->
+          <a href="news.html" class="block bg-gradient-to-r from-gray-900 to-gray-800 rounded-xl p-4 text-center text-white hover:shadow-lg transition">
+            <span class="font-medium">探索更多案例与资讯</span>
+            <i class="fas fa-arrow-right ml-2"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- 快捷数据条 -->
+      <div class="mt-12 grid grid-cols-2 md:grid-cols-4 gap-4" data-aos="fade-up">
+        <div class="bg-white rounded-xl p-6 text-center shadow-sm">
+          <div class="text-3xl font-bold text-[#cf0a2c]">6300万+</div>
+          <div class="text-gray-500 text-sm mt-1">中小制造企业</div>
+        </div>
+        <div class="bg-white rounded-xl p-6 text-center shadow-sm">
+          <div class="text-3xl font-bold text-blue-600">80%+</div>
+          <div class="text-gray-500 text-sm mt-1">风险降低率</div>
+        </div>
+        <div class="bg-white rounded-xl p-6 text-center shadow-sm">
+          <div class="text-3xl font-bold text-green-600">1天</div>
+          <div class="text-gray-500 text-sm mt-1">快速部署</div>
+        </div>
+        <div class="bg-white rounded-xl p-6 text-center shadow-sm">
+          <div class="text-3xl font-bold text-purple-600">&lt;400元</div>
+          <div class="text-gray-500 text-sm mt-1">单点位成本</div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- 页脚 -->
+<footer class="bg-gray-900 text-gray-300 py-12">
+  <div class="hw-container grid grid-cols-1 md:grid-cols-4 gap-8">
+    <div>
+      <div class="flex items-center gap-2 mb-4">
+        <img src="images/logo.jpg" alt="logo" class="h-8 w-auto rounded">
+        <span class="text-white font-semibold text-lg">智感工厂</span>
+      </div>
+      <p class="text-sm">守护每一位劳动者的安全</p>
+      <div class="flex space-x-4 mt-4">
+        <a href="#" class="hover:text-white"><i class="fab fa-weixin"></i></a>
+        <a href="#" class="hover:text-white"><i class="fab fa-weibo"></i></a>
+      </div>
+    </div>
+    <div>
+      <h4 class="text-white font-medium mb-4">快速链接</h4>
+      <ul class="space-y-2 text-sm">
+        <li><a href="about.html" class="hover:text-white">关于我们</a></li>
+        <li><a href="products.html" class="hover:text-white">产品服务</a></li>
+        <li><a href="news.html" class="hover:text-white">新闻资讯</a></li>
+        <li><a href="contact.html" class="hover:text-white">联系我们</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4 class="text-white font-medium mb-4">产品</h4>
+      <ul class="space-y-2 text-sm">
+        <li>安全帽/反光衣识别</li>
+        <li>温湿度监测</li>
+        <li>边缘离线大模型</li>
+        <li>多工厂管理平台</li>
+      </ul>
+    </div>
+    <div>
+      <h4 class="text-white font-medium mb-4">联系方式</h4>
+      <p class="text-sm"><i class="fas fa-phone-alt mr-2"></i> 400-xxx-xxxx</p>
+      <p class="text-sm mt-2"><i class="fas fa-envelope mr-2"></i> contact@zhigan.com</p>
+    </div>
+  </div>
+  <div class="border-t border-gray-700 mt-8 pt-6 text-center text-xs">
+    © 2026 智感工厂 基于物联网与AI视觉的工厂安全监测系统  |  智感物联科技有限公司
+  </div>
+</footer>
+
+<!-- JS 库 -->
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script src="js/main.js"></script>
+<script>
+  // 首页专属初始化
+  document.addEventListener('DOMContentLoaded', function() {
+    // 页面切换功能
+    let currentPage = 0;
+    const totalPages = 3;
+    let autoSwitchTimer;
+
+    function switchPage(index) {
+      // 停止之前的动画
+      if (autoSwitchTimer) clearInterval(autoSwitchTimer);
+      
+      // 更新按钮样式
+      for (let i = 0; i < totalPages; i++) {
+        const btn = document.getElementById('tab-' + i);
+        const page = document.getElementById('page-' + i);
+        if (i === index) {
+          btn.classList.remove('bg-white/10', 'hover:bg-white/20');
+          btn.classList.add('bg-[#cf0a2c]', 'shadow-lg');
+          page.classList.remove('hidden');
+          // 重新触发AOS动画
+          page.querySelectorAll('[data-aos]').forEach(el => {
+            el.classList.remove('aos-animate');
+            setTimeout(() => el.classList.add('aos-animate'), 50);
+          });
+        } else {
+          btn.classList.remove('bg-[#cf0a2c]', 'shadow-lg');
+          btn.classList.add('bg-white/10', 'hover:bg-white/20');
+          page.classList.add('hidden');
+        }
+      }
+      currentPage = index;
+      
+      // 重新开始自动切换
+      startAutoSwitch();
+    }
+
+    function startAutoSwitch() {
+      autoSwitchTimer = setInterval(() => {
+        const nextPage = (currentPage + 1) % totalPages;
+        switchPage(nextPage);
+      }, 6000);
+    }
+
+    // 将函数挂载到全局
+    window.switchPage = switchPage;
+
+    // 数字滚动效果简单实现
+    const countupEls = document.querySelectorAll('.countup');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const el = entry.target;
+          const target = parseFloat(el.dataset.target);
+          let current = 0;
+          const step = target / 50;
+          const timer = setInterval(() => {
+            current += step;
+            if (current >= target) {
+              el.innerText = target;
+              clearInterval(timer);
+            } else {
+              el.innerText = current.toFixed(1);
+            }
+          }, 20);
+          observer.unobserve(el);
+        }
+      });
+    }, { threshold: 0.5 });
+    countupEls.forEach(el => observer.observe(el));
+
+    // 启动自动切换
+    startAutoSwitch();
+  });
+</script>
+</body>
+</html>

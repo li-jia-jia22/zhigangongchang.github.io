@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>产品服务 · 智感工厂</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    :root { --hw-red: #cf0a2c; }
+    .hw-container { max-width: 1400px; margin: 0 auto; padding: 0 24px; }
+    .btn-primary { background: var(--hw-red); color: white; padding: 12px 32px; border-radius: 30px; font-weight: 500; transition: all 0.3s; border: 1px solid var(--hw-red); display: inline-block; }
+    .btn-primary:hover { background: transparent; color: var(--hw-red); }
+    .btn-outline { border: 1px solid #333; color: #333; padding: 12px 32px; border-radius: 30px; font-weight: 500; transition: all 0.3s; display: inline-block; }
+    .btn-outline:hover { background: #333; color: white; }
+    .nav-link { position: relative; transition: color 0.2s; }
+    .nav-link::after { content: ''; position: absolute; bottom: -6px; left: 0; width: 0; height: 2px; background: var(--hw-red); transition: width 0.3s; }
+    .nav-link:hover::after, .nav-link.active::after { width: 100%; }
+    .nav-link:hover, .nav-link.active { color: var(--hw-red) !important; }
+    .pricing-card { transition: all 0.3s ease; }
+    .pricing-card:hover { transform: translateY(-8px); }
+    .feature-icon { width: 48px; height: 48px; background: linear-gradient(135deg, rgba(207,10,44,0.1) 0%, rgba(207,10,44,0.05) 100%); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: var(--hw-red); font-size: 20px; }
+    .check-item::before { content: '✓'; color: var(--hw-red); font-weight: bold; margin-right: 8px; }
+  </style>
+</head>
+<body class="bg-white">
+
+<!-- 导航栏（同前，active在products） -->
+<header id="navbar" class="fixed top-0 left-0 w-full z-50 bg-white/95 backdrop-blur-sm shadow-sm">
+  <div class="hw-container flex justify-between items-center py-4">
+    <a href="index.html" class="flex items-center gap-2"><img src="images/logo.jpg" class="h-10 rounded"><span class="text-xl font-semibold">智感工厂</span></a>
+    <nav class="hidden md:flex space-x-8">
+      <a href="index.html" class="nav-link">首页</a><a href="about.html" class="nav-link">关于我们</a><a href="products.html" class="nav-link active">产品服务</a><a href="news.html" class="nav-link">新闻资讯</a><a href="contact.html" class="nav-link">联系我们</a>
+    </nav>
+    <div class="hidden md:block"><a href="contact.html" class="btn-primary text-sm">预约演示</a></div>
+    <button id="menu-btn" class="md:hidden text-2xl"><i class="fas fa-bars"></i></button>
+  </div>
+  <div id="mobile-menu" class="md:hidden hidden bg-white border-t border-gray-100 pb-4 px-6"><!-- 省略同前 --></div>
+</header>
+
+<main class="pt-20">
+  <!-- Hero区域 -->
+  <section class="relative bg-gradient-to-br from-gray-900 via-gray-800 to-[#1a1a2e] min-h-[450px] flex items-center overflow-hidden">
+    <div class="absolute inset-0 opacity-20">
+      <div class="absolute top-20 right-20 w-[500px] h-[500px] bg-[#cf0a2c] rounded-full blur-[180px]"></div>
+    </div>
+    <div class="hw-container relative z-10 py-16">
+      <div class="text-center max-w-3xl mx-auto" data-aos="fade-up">
+        <span class="text-[#cf0a2c] font-semibold tracking-wider">PRODUCTS</span>
+        <h1 class="text-5xl md:text-6xl font-bold text-white mt-4 mb-6">产品与服务</h1>
+        <p class="text-xl text-gray-400">灵活的分级套餐，满足不同规模工厂的安全监测需求</p>
+        <div class="mt-8 flex flex-wrap justify-center gap-4">
+          <a href="#pricing" class="btn-primary">查看套餐</a>
+          <a href="#features" class="px-8 py-3 rounded-full border border-white/30 text-white hover:bg-white/10 transition">功能特性</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 核心功能特性 -->
+  <section id="features" class="py-20 bg-white">
+    <div class="hw-container">
+      <div class="text-center mb-16" data-aos="fade-up">
+        <span class="text-[#cf0a2c] font-semibold tracking-wide">FEATURES</span>
+        <h2 class="text-4xl font-bold text-gray-900 mt-3">核心功能特性</h2>
+        <p class="text-gray-500 mt-4 max-w-2xl mx-auto">温湿度+AI视觉双模态融合，打造全方位的工厂安全监测方案</p>
+      </div>
+      
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="group p-8 rounded-2xl bg-gray-50 hover:bg-white hover:shadow-xl transition-all duration-300" data-aos="fade-up">
+          <div class="feature-icon mb-6">
+            <i class="fas fa-brain"></i>
+          </div>
+          <h3 class="text-xl font-bold text-gray-900 mb-3">AI视觉识别</h3>
+          <ul class="space-y-2 text-gray-600 text-sm">
+            <li class="check-item">安全帽佩戴检测</li>
+            <li class="check-item">反光衣穿戴识别</li>
+            <li class="check-item">危险区域闯入告警</li>
+            <li class="check-item">烟火实时监测</li>
+            <li class="check-item">YOLO11算法，准确率96.2%</li>
+          </ul>
+        </div>
+        
+        <div class="group p-8 rounded-2xl bg-gray-50 hover:bg-white hover:shadow-xl transition-all duration-300" data-aos="fade-up" data-aos-delay="100">
+          <div class="feature-icon mb-6">
+            <i class="fas fa-thermometer-half"></i>
+          </div>
+          <h3 class="text-xl font-bold text-gray-900 mb-3">环境监测</h3>
+          <ul class="space-y-2 text-gray-600 text-sm">
+            <li class="check-item">实时温湿度采集</li>
+            <li class="check-item">DS18B20温度传感器</li>
+            <li class="check-item">DHT11湿度传感器</li>
+            <li class="check-item">LCD1602本地显示</li>
+            <li class="check-item">异常阈值智能预警</li>
+          </ul>
+        </div>
+        
+        <div class="group p-8 rounded-2xl bg-gray-50 hover:bg-white hover:shadow-xl transition-all duration-300" data-aos="fade-up" data-aos-delay="200">
+          <div class="feature-icon mb-6">
+            <i class="fas fa-bell"></i>
+          </div>
+          <h3 class="text-xl font-bold text-gray-900 mb-3">智能告警</h3>
+          <ul class="space-y-2 text-gray-600 text-sm">
+            <li class="check-item">TTS语音实时播报</li>
+            <li class="check-item">违规自动抓拍</li>
+            <li class="check-item">0.6秒极速响应</li>
+            <li class="check-item">微信/小程序推送</li>
+            <li class="check-item">历史记录完整追溯</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 产品套餐 -->
+  <section id="pricing" class="py-20 bg-gray-50">
+    <div class="hw-container">
+      <div class="text-center mb-16" data-aos="fade-up">
+        <span class="text-[#cf0a2c] font-semibold tracking-wide">PRICING</span>
+        <h2 class="text-4xl font-bold text-gray-900 mt-3">选择适合您的套餐</h2>
+        <p class="text-gray-500 mt-4">从单点小作坊到连锁工厂集团，总有一款适合您</p>
+      </div>
+      
+      <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+        <!-- 基础版 -->
+        <div class="pricing-card bg-white rounded-3xl p-8 shadow-sm border border-gray-100" data-aos="fade-up">
+          <div class="mb-6">
+            <h3 class="text-2xl font-bold text-gray-900 mb-2">基础版</h3>
+            <p class="text-gray-500 text-sm">适用于小作坊、单个仓库</p>
+          </div>
+          <div class="mb-8">
+            <span class="text-4xl font-bold text-gray-900">¥1,200</span>
+            <span class="text-gray-500">/年</span>
+          </div>
+          <ul class="space-y-4 mb-8">
+            <li class="flex items-center text-gray-700">
+              <i class="fas fa-check-circle text-[#cf0a2c] mr-3"></i>单路视频监控
+            </li>
+            <li class="flex items-center text-gray-700">
+              <i class="fas fa-check-circle text-[#cf0a2c] mr-3"></i>AI安全帽识别
+            </li>
+            <li class="flex items-center text-gray-700">
+              <i class="fas fa-check-circle text-[#cf0a2c] mr-3"></i>本地语音报警
+            </li>
+            <li class="flex items-center text-gray-700">
+              <i class="fas fa-check-circle text-[#cf0a2c] mr-3"></i>温湿度本地显示
+            </li>
+            <li class="flex items-center text-gray-400">
+              <i class="fas fa-times-circle mr-3"></i>云端数据存储
+            </li>
+            <li class="flex items-center text-gray-400">
+              <i class="fas fa-times-circle mr-3"></i>历史记录查询
+            </li>
+          </ul>
+          <a href="contact.html" class="block w-full py-4 text-center border-2 border-gray-200 rounded-full font-medium text-gray-700 hover:border-[#cf0a2c] hover:text-[#cf0a2c] transition">联系试用</a>
+        </div>
+        
+        <!-- 标准版 - 推荐 -->
+        <div class="pricing-card bg-white rounded-3xl p-8 shadow-xl border-2 border-[#cf0a2c] relative transform md:-translate-y-4" data-aos="fade-up" data-aos-delay="100">
+          <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-[#cf0a2c] text-white px-6 py-1 rounded-full text-sm font-medium">
+            最受欢迎
+          </div>
+          <div class="mb-6">
+            <h3 class="text-2xl font-bold text-gray-900 mb-2">标准版</h3>
+            <p class="text-gray-500 text-sm">适用于标准中小工厂</p>
+          </div>
+          <div class="mb-8">
+            <span class="text-4xl font-bold text-[#cf0a2c]">¥2,400</span>
+            <span class="text-gray-500">/年</span>
+          </div>
+          <ul class="space-y-4 mb-8">
+            <li class="flex items-center text-gray-700">
+              <i class="fas fa-check-circle text-[#cf0a2c] mr-3"></i>多路视频接入（≤4路）
+            </li>
+            <li class="flex items-center text-gray-700">
+              <i class="fas fa-check-circle text-[#cf0a2c] mr-3"></i>双模态融合监测
+            </li>
+            <li class="flex items-center text-gray-700">
+              <i class="fas fa-check-circle text-[#cf0a2c] mr-3"></i>Web端管理平台
+            </li>
+            <li class="flex items-center text-gray-700">
+              <i class="fas fa-check-circle text-[#cf0a2c] mr-3"></i>历史记录查询
+            </li>
+            <li class="flex items-center text-gray-700">
+              <i class="fas fa-check-circle text-[#cf0a2c] mr-3"></i>TTS语音播报
+            </li>
+            <li class="flex items-center text-gray-700">
+              <i class="fas fa-check-circle text-[#cf0a2c] mr-3"></i>云端数据存储（30天）
+            </li>
+          </ul>
+          <a href="contact.html" class="block w-full py-4 text-center bg-[#cf0a2c] text-white rounded-full font-medium hover:bg-[#a00824] transition">立即购买</a>
+        </div>
+        
+        <!-- 高级版 -->
+        <div class="pricing-card bg-white rounded-3xl p-8 shadow-sm border border-gray-100" data-aos="fade-up" data-aos-delay="200">
+          <div class="mb-6">
+            <h3 class="text-2xl font-bold text-gray-900 mb-2">高级版</h3>
+            <p class="text-gray-500 text-sm">适用于连锁工厂、园区</p>
+          </div>
+          <div class="mb-8">
+            <span class="text-4xl font-bold text-gray-900">¥4,800</span>
+            <span class="text-gray-500">/年</span>
+          </div>
+          <ul class="space-y-4 mb-8">
+            <li class="flex items-center text-gray-700">
+              <i class="fas fa-check-circle text-[#cf0a2c] mr-3"></i>多工厂统一管理
+            </li>
+            <li class="flex items-center text-gray-700">
+              <i class="fas fa-check-circle text-[#cf0a2c] mr-3"></i>微信小程序访问
+            </li>
+            <li class="flex items-center text-gray-700">
+              <i class="fas fa-check-circle text-[#cf0a2c] mr-3"></i>EDA数据分析
+            </li>
+            <li class="flex items-center text-gray-700">
+              <i class="fas fa-check-circle text-[#cf0a2c] mr-3"></i>报表批量导出
+            </li>
+            <li class="flex items-center text-gray-700">
+              <i class="fas fa-check-circle text-[#cf0a2c] mr-3"></i>子账号权限分配
+            </li>
+            <li class="flex items-center text-gray-700">
+              <i class="fas fa-check-circle text-[#cf0a2c] mr-3"></i>云端数据存储（1年）
+            </li>
+          </ul>
+          <a href="contact.html" class="block w-full py-4 text-center border-2 border-gray-200 rounded-full font-medium text-gray-700 hover:border-[#cf0a2c] hover:text-[#cf0a2c] transition">联系销售</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 技术架构 -->
+  <section class="py-20 bg-white">
+    <div class="hw-container">
+      <div class="text-center mb-16" data-aos="fade-up">
+        <span class="text-[#cf0a2c] font-semibold tracking-wide">ARCHITECTURE</span>
+        <h2 class="text-4xl font-bold text-gray-900 mt-3">端-边-云-应用四层架构</h2>
+        <p class="text-gray-500 mt-4">模块化设计，灵活部署，高可靠运行</p>
+      </div>
+      <div class="relative" data-aos="fade-up">
+        <img src="images/技术路线图.png" alt="技术架构" class="w-full max-w-5xl mx-auto rounded-2xl shadow-2xl">
+      </div>
+      
+      <div class="grid md:grid-cols-4 gap-6 mt-12">
+        <div class="text-center p-6 bg-gray-50 rounded-xl" data-aos="fade-up">
+          <div class="w-14 h-14 bg-blue-500/10 rounded-xl flex items-center justify-center text-blue-600 text-2xl mx-auto mb-4">
+            <i class="fas fa-microchip"></i>
+          </div>
+          <h4 class="font-bold text-gray-900 mb-2">端层</h4>
+          <p class="text-sm text-gray-600">STC51单片机+传感器<br/>低功耗数据采集</p>
+        </div>
+        <div class="text-center p-6 bg-gray-50 rounded-xl" data-aos="fade-up" data-aos-delay="100">
+          <div class="w-14 h-14 bg-[#cf0a2c]/10 rounded-xl flex items-center justify-center text-[#cf0a2c] text-2xl mx-auto mb-4">
+            <i class="fas fa-brain"></i>
+          </div>
+          <h4 class="font-bold text-gray-900 mb-2">边缘层</h4>
+          <p class="text-sm text-gray-600">MaixCAM边缘AI<br/>离线推理+语音播报</p>
+        </div>
+        <div class="text-center p-6 bg-gray-50 rounded-xl" data-aos="fade-up" data-aos-delay="200">
+          <div class="w-14 h-14 bg-purple-500/10 rounded-xl flex items-center justify-center text-purple-600 text-2xl mx-auto mb-4">
+            <i class="fas fa-cloud"></i>
+          </div>
+          <h4 class="font-bold text-gray-900 mb-2">云层</h4>
+          <p class="text-sm text-gray-600">FastAPI+Node.js<br/>数据存储与管理</p>
+        </div>
+        <div class="text-center p-6 bg-gray-50 rounded-xl" data-aos="fade-up" data-aos-delay="300">
+          <div class="w-14 h-14 bg-green-500/10 rounded-xl flex items-center justify-center text-green-600 text-2xl mx-auto mb-4">
+            <i class="fas fa-mobile-alt"></i>
+          </div>
+          <h4 class="font-bold text-gray-900 mb-2">应用层</h4>
+          <p class="text-sm text-gray-600">Web+小程序<br/>多终端访问</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA区域 -->
+  <section class="py-20 bg-gradient-to-br from-gray-900 via-gray-800 to-[#1a1a2e]">
+    <div class="hw-container text-center" data-aos="fade-up">
+      <h2 class="text-4xl font-bold text-white mb-4">免费试用30天</h2>
+      <p class="text-xl text-gray-400 mb-8">提供全套硬件借用+软件功能，专家团队一对一指导</p>
+      <a href="contact.html" class="btn-primary text-lg px-12">立即预约演示</a>
+    </div>
+  </section>
+</main>
+
+<!-- 页脚 -->
+<footer class="bg-gray-900 text-gray-300 py-12">
+  <div class="hw-container grid grid-cols-1 md:grid-cols-4 gap-8">
+    <div>
+      <div class="flex items-center gap-2 mb-4">
+        <img src="images/logo.jpg" class="h-8 rounded">
+        <span class="text-white font-semibold text-lg">智感工厂</span>
+      </div>
+      <p class="text-sm">守护每一位劳动者的安全</p>
+    </div>
+    <div>
+      <h4 class="text-white font-medium mb-4">快速链接</h4>
+      <ul class="space-y-2 text-sm">
+        <li><a href="about.html" class="hover:text-white">关于我们</a></li>
+        <li><a href="products.html" class="hover:text-white">产品服务</a></li>
+        <li><a href="news.html" class="hover:text-white">新闻资讯</a></li>
+        <li><a href="contact.html" class="hover:text-white">联系我们</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4 class="text-white font-medium mb-4">产品</h4>
+      <ul class="space-y-2 text-sm">
+        <li>安全帽/反光衣识别</li>
+        <li>温湿度监测</li>
+        <li>边缘离线大模型</li>
+        <li>多工厂管理平台</li>
+      </ul>
+    </div>
+    <div>
+      <h4 class="text-white font-medium mb-4">联系方式</h4>
+      <p class="text-sm"><i class="fas fa-phone-alt mr-2"></i> 13839881612</p>
+      <p class="text-sm mt-2"><i class="fas fa-envelope mr-2"></i> contact@zhigan.com</p>
+    </div>
+  </div>
+  <div class="border-t border-gray-700 mt-8 pt-6 text-center text-xs">
+    2026 智感工厂 · 智感物联科技有限公司
+  </div>
+</footer>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script src="js/main.js"></script>
+<script>AOS.init();</script>
+</body>
+</html>

@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>关于我们 · 智感工厂</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    :root { --hw-red: #cf0a2c; }
+    .hw-container { max-width: 1400px; margin: 0 auto; padding: 0 24px; }
+    .btn-primary { background: var(--hw-red); color: white; padding: 12px 32px; border-radius: 30px; font-weight: 500; transition: all 0.3s; border: 1px solid var(--hw-red); display: inline-block; }
+    .btn-primary:hover { background: transparent; color: var(--hw-red); }
+    .nav-link { position: relative; transition: color 0.2s; }
+    .nav-link::after { content: ''; position: absolute; bottom: -6px; left: 0; width: 0; height: 2px; background: var(--hw-red); transition: width 0.3s; }
+    .nav-link:hover::after, .nav-link.active::after { width: 100%; }
+    .nav-link:hover, .nav-link.active { color: var(--hw-red) !important; }
+    .timeline-item { position: relative; padding-left: 30px; border-left: 2px solid #e5e7eb; }
+    .timeline-item::before { content: ''; position: absolute; left: -6px; top: 6px; width: 10px; height: 10px; border-radius: 50%; background: var(--hw-red); }
+    .timeline-item:last-child { border-left-color: transparent; }
+    .stat-card { background: linear-gradient(135deg, rgba(207,10,44,0.05) 0%, rgba(207,10,44,0.01) 100%); border: 1px solid rgba(207,10,44,0.1); }
+  </style>
+</head>
+<body class="bg-white">
+
+<!-- 导航栏（同首页结构，仅active变化） -->
+<header id="navbar" class="fixed top-0 left-0 w-full z-50 bg-white/95 backdrop-blur-sm shadow-sm">
+  <div class="hw-container flex justify-between items-center py-4">
+    <a href="index.html" class="flex items-center gap-2">
+      <img src="images/logo.jpg" alt="智感工厂" class="h-10 w-auto object-contain rounded">
+      <span class="text-xl font-semibold text-gray-800">智感工厂</span>
+    </a>
+    <nav class="hidden md:flex items-center space-x-8 font-medium text-gray-700">
+      <a href="index.html" class="nav-link">首页</a>
+      <a href="about.html" class="nav-link active">关于我们</a>
+      <a href="products.html" class="nav-link">产品服务</a>
+      <a href="news.html" class="nav-link">新闻资讯</a>
+      <a href="contact.html" class="nav-link">联系我们</a>
+    </nav>
+    <div class="hidden md:block"><a href="contact.html" class="btn-primary text-sm">预约演示</a></div>
+    <button id="menu-btn" class="md:hidden text-2xl"><i class="fas fa-bars"></i></button>
+  </div>
+  <div id="mobile-menu" class="md:hidden hidden bg-white border-t border-gray-100 pb-4 px-6">
+    <nav class="flex flex-col space-y-3 pt-3">
+      <a href="index.html" class="py-2 nav-link">首页</a>
+      <a href="about.html" class="py-2 nav-link active">关于我们</a>
+      <a href="products.html" class="py-2 nav-link">产品服务</a>
+      <a href="news.html" class="py-2 nav-link">新闻资讯</a>
+      <a href="contact.html" class="py-2 nav-link">联系我们</a>
+    </nav>
+  </div>
+</header>
+
+<main class="pt-20">
+  <!-- Hero区域 - 深色科技感 -->
+  <section class="relative bg-gradient-to-br from-gray-900 via-gray-800 to-[#1a1a2e] min-h-[500px] flex items-center overflow-hidden">
+    <div class="absolute inset-0 opacity-20">
+      <div class="absolute top-0 right-0 w-[600px] h-[600px] bg-[#cf0a2c] rounded-full blur-[200px]"></div>
+      <div class="absolute bottom-0 left-0 w-[400px] h-[400px] bg-blue-600 rounded-full blur-[150px]"></div>
+    </div>
+    <div class="hw-container relative z-10 py-20">
+      <div class="max-w-3xl" data-aos="fade-up">
+        <div class="inline-flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full text-sm text-gray-300 mb-6 border border-white/10">
+          <span class="w-2 h-2 bg-[#cf0a2c] rounded-full animate-pulse"></span>
+          河南省特色化示范性软件学院重点支持项目
+        </div>
+        <h1 class="text-5xl md:text-6xl font-bold text-white leading-tight mb-6">
+          科技向善<br/>
+          <span class="text-[#cf0a2c]">守护每一位工人</span>
+        </h1>
+        <p class="text-xl text-gray-400 leading-relaxed max-w-2xl">
+          智感工厂是由软件、计算机、材料、商学院四大学院联合打造的AI+物联网创新项目，致力于用技术守护工业安全，让智能监测普惠每一家工厂。
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 核心数据展示 -->
+  <section class="py-16 bg-white">
+    <div class="hw-container">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+        <div class="text-center" data-aos="fade-up">
+          <div class="text-4xl font-bold text-[#cf0a2c] mb-2">4</div>
+          <div class="text-gray-600">跨学院协作</div>
+        </div>
+        <div class="text-center" data-aos="fade-up" data-aos-delay="100">
+          <div class="text-4xl font-bold text-[#cf0a2c] mb-2">15+</div>
+          <div class="text-gray-600">国家级科研项目</div>
+        </div>
+        <div class="text-center" data-aos="fade-up" data-aos-delay="200">
+          <div class="text-4xl font-bold text-[#cf0a2c] mb-2">173</div>
+          <div class="text-gray-600">SCI论文发表</div>
+        </div>
+        <div class="text-center" data-aos="fade-up" data-aos-delay="300">
+          <div class="text-4xl font-bold text-[#cf0a2c] mb-2">8000+</div>
+          <div class="text-gray-600">学院在校生</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 平台支撑 -->
+  <section class="py-20 bg-gray-50">
+    <div class="hw-container">
+      <div class="grid md:grid-cols-2 gap-16 items-center">
+        <div data-aos="fade-right">
+          <span class="text-[#cf0a2c] font-semibold tracking-wide">PLATFORM</span>
+          <h2 class="text-4xl font-bold text-gray-900 mt-3 mb-6">省级平台 · 强力支撑</h2>
+          <p class="text-gray-600 leading-relaxed mb-8">
+            项目核心成员来自河南省首批特色化示范性软件学院，依托"智慧商务与物联网技术"省工程实验室、"计算智能与数据挖掘"省高校工程技术研究中心等平台，拥有雄厚的技术积累与研发实力。
+          </p>
+          
+          <div class="space-y-4">
+            <div class="flex items-start gap-4 p-4 bg-white rounded-xl shadow-sm">
+              <div class="w-12 h-12 bg-[#cf0a2c]/10 rounded-lg flex items-center justify-center text-[#cf0a2c] flex-shrink-0">
+                <i class="fas fa-award text-xl"></i>
+              </div>
+              <div>
+                <h4 class="font-bold text-gray-900">河南省首批特色化示范性软件学院</h4>
+                <p class="text-gray-500 text-sm">2020年获批，2023年考核全省第二</p>
+              </div>
+            </div>
+            <div class="flex items-start gap-4 p-4 bg-white rounded-xl shadow-sm">
+              <div class="w-12 h-12 bg-blue-500/10 rounded-lg flex items-center justify-center text-blue-500 flex-shrink-0">
+                <i class="fas fa-flask text-xl"></i>
+              </div>
+              <div>
+                <h4 class="font-bold text-gray-900">省级科研平台</h4>
+                <p class="text-gray-500 text-sm">省工程实验室、工程技术研究中心</p>
+              </div>
+            </div>
+            <div class="flex items-start gap-4 p-4 bg-white rounded-xl shadow-sm">
+              <div class="w-12 h-12 bg-green-500/10 rounded-lg flex items-center justify-center text-green-500 flex-shrink-0">
+                <i class="fas fa-graduation-cap text-xl"></i>
+              </div>
+              <div>
+                <h4 class="font-bold text-gray-900">国家级一流专业</h4>
+                <p class="text-gray-500 text-sm">计算机科学与技术专业建设点</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div data-aos="fade-left">
+          <div class="relative">
+            <img src="images/技术路线图.png" alt="技术架构" class="rounded-2xl shadow-2xl w-full">
+            <div class="absolute -bottom-6 -right-6 bg-white p-6 rounded-xl shadow-xl">
+              <div class="flex items-center gap-4">
+                <div class="w-14 h-14 bg-[#cf0a2c] rounded-full flex items-center justify-center text-white text-2xl">
+                  <i class="fas fa-certificate"></i>
+                </div>
+                <div>
+                  <div class="text-2xl font-bold text-gray-900">5+</div>
+                  <div class="text-gray-500">软件著作权</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 发展历程时间轴 -->
+  <section class="py-20 bg-white">
+    <div class="hw-container">
+      <div class="text-center mb-16" data-aos="fade-up">
+        <span class="text-[#cf0a2c] font-semibold tracking-wide">JOURNEY</span>
+        <h2 class="text-4xl font-bold text-gray-900 mt-3">项目发展历程</h2>
+      </div>
+      
+      <div class="max-w-4xl mx-auto">
+        <div class="timeline-item pb-8" data-aos="fade-up">
+          <div class="text-sm text-[#cf0a2c] font-semibold mb-1">2024.09</div>
+          <h3 class="text-xl font-bold text-gray-900 mb-2">项目启动</h3>
+          <p class="text-gray-600">深入本地工业园区调研，发现中小工厂安全管理痛点，组建跨学科团队。</p>
+        </div>
+        <div class="timeline-item pb-8" data-aos="fade-up" data-aos-delay="100">
+          <div class="text-sm text-[#cf0a2c] font-semibold mb-1">2025.03</div>
+          <h3 class="text-xl font-bold text-gray-900 mb-2">技术攻关</h3>
+          <p class="text-gray-600">完成STC51单片机与MaixCAM边缘AI设备联调，实现双模态数据融合。</p>
+        </div>
+        <div class="timeline-item pb-8" data-aos="fade-up" data-aos-delay="200">
+          <div class="text-sm text-[#cf0a2c] font-semibold mb-1">2025.09</div>
+          <h3 class="text-xl font-bold text-gray-900 mb-2">产品成型</h3>
+          <p class="text-gray-600">完成前后端开发，通过72小时稳定性测试，识别准确率达96.2%。</p>
+        </div>
+        <div class="timeline-item" data-aos="fade-up" data-aos-delay="300">
+          <div class="text-sm text-[#cf0a2c] font-semibold mb-1">2026.04</div>
+          <h3 class="text-xl font-bold text-gray-900 mb-2">试点落地</h3>
+          <p class="text-gray-600">完成首批15家工厂试点部署，违规事件下降67%，获企业一致好评。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 社会价值 -->
+  <section class="py-20 bg-gradient-to-br from-gray-900 to-gray-800">
+    <div class="hw-container">
+      <div class="text-center mb-16" data-aos="fade-up">
+        <span class="text-[#cf0a2c] font-semibold tracking-wide">VALUE</span>
+        <h2 class="text-4xl font-bold text-white mt-3">社会价值与青年担当</h2>
+        <p class="text-gray-400 mt-4 max-w-2xl mx-auto">用技术解决真实社会问题，让智能监测普惠每一家工厂</p>
+      </div>
+      
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="stat-card rounded-2xl p-8" data-aos="fade-up">
+          <div class="w-16 h-16 bg-[#cf0a2c]/20 rounded-2xl flex items-center justify-center text-[#cf0a2c] text-3xl mb-6">
+            <i class="fas fa-hard-hat"></i>
+          </div>
+          <h3 class="text-2xl font-bold text-white mb-3">守护生命安全</h3>
+          <p class="text-gray-400 leading-relaxed">
+            我国每年发生工贸企业安全事故超3000起。本系统将事故预防从"事后追责"前移至"事中干预"，秒级告警，切实守护一线工人生命安全。
+          </p>
+        </div>
+        <div class="stat-card rounded-2xl p-8" data-aos="fade-up" data-aos-delay="100">
+          <div class="w-16 h-16 bg-blue-500/20 rounded-2xl flex items-center justify-center text-blue-500 text-3xl mb-6">
+            <i class="fas fa-hand-holding-usd"></i>
+          </div>
+          <h3 class="text-2xl font-bold text-white mb-3">科技普惠中小厂</h3>
+          <p class="text-gray-400 leading-relaxed">
+            单点位成本控制在400元以内，整体投入仅为商用平台1/5。免布线、1天部署，让中小工厂也能用上AI安全监测。
+          </p>
+        </div>
+        <div class="stat-card rounded-2xl p-8" data-aos="fade-up" data-aos-delay="200">
+          <div class="w-16 h-16 bg-green-500/20 rounded-2xl flex items-center justify-center text-green-500 text-3xl mb-6">
+            <i class="fas fa-users"></i>
+          </div>
+          <h3 class="text-2xl font-bold text-white mb-3">跨学科育人</h3>
+          <p class="text-gray-400 leading-relaxed">
+            软/计/材/商四学院学子协作，立足专业知识、直面社会痛点，培养复合型工业互联网科创人才，展现青年担当。
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 荣誉证书 -->
+  <section class="py-20 bg-white">
+    <div class="hw-container">
+      <div class="text-center mb-12" data-aos="fade-up">
+        <span class="text-[#cf0a2c] font-semibold tracking-wide">HONORS</span>
+        <h2 class="text-4xl font-bold text-gray-900 mt-3">知识产权与荣誉</h2>
+      </div>
+      <div class="grid md:grid-cols-5 gap-6">
+        <div class="group" data-aos="zoom-in">
+          <div class="bg-gray-50 rounded-xl p-4 aspect-[3/4] flex items-center justify-center group-hover:shadow-xl transition-shadow">
+            <img src="images/软著1.png" alt="软件著作权" class="max-h-full object-contain">
+          </div>
+          <p class="text-center text-sm text-gray-600 mt-3">安全监测系统 V1.0</p>
+        </div>
+        <div class="group" data-aos="zoom-in" data-aos-delay="100">
+          <div class="bg-gray-50 rounded-xl p-4 aspect-[3/4] flex items-center justify-center group-hover:shadow-xl transition-shadow">
+            <img src="images/软著2.png" alt="软件著作权" class="max-h-full object-contain">
+          </div>
+          <p class="text-center text-sm text-gray-600 mt-3">数据分析平台 V1.0</p>
+        </div>
+        <div class="group" data-aos="zoom-in" data-aos-delay="200">
+          <div class="bg-gray-50 rounded-xl p-4 aspect-[3/4] flex items-center justify-center group-hover:shadow-xl transition-shadow">
+            <img src="images/软著3.png" alt="软件著作权" class="max-h-full object-contain">
+          </div>
+          <p class="text-center text-sm text-gray-600 mt-3">移动端小程序 V1.0</p>
+        </div>
+        <div class="group" data-aos="zoom-in" data-aos-delay="300">
+          <div class="bg-gray-50 rounded-xl p-4 aspect-[3/4] flex items-center justify-center group-hover:shadow-xl transition-shadow">
+            <img src="images/软著4.png" alt="软件著作权" class="max-h-full object-contain">
+          </div>
+          <p class="text-center text-sm text-gray-600 mt-3">边缘AI推理系统</p>
+        </div>
+        <div class="group" data-aos="zoom-in" data-aos-delay="400">
+          <div class="bg-gray-50 rounded-xl p-4 aspect-[3/4] flex items-center justify-center group-hover:shadow-xl transition-shadow">
+            <img src="images/软著5.png" alt="软件著作权" class="max-h-full object-contain">
+          </div>
+          <p class="text-center text-sm text-gray-600 mt-3">物联网管理平台</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- 页脚同首页 -->
+<footer class="bg-gray-900 text-gray-300 py-12">
+  <div class="hw-container grid grid-cols-1 md:grid-cols-4 gap-8">
+    <div><div class="flex items-center gap-2 mb-4"><img src="images/logo.jpg" class="h-8 rounded"><span class="text-white font-semibold">智感工厂</span></div><p class="text-sm">守护每一位劳动者的安全</p></div>
+    <div><h4 class="text-white mb-4">快速链接</h4><ul class="space-y-2 text-sm"><li><a href="about.html">关于我们</a></li><li><a href="products.html">产品服务</a></li><li><a href="news.html">新闻资讯</a></li><li><a href="contact.html">联系我们</a></li></ul></div>
+    <div><h4 class="text-white mb-4">产品</h4><ul class="space-y-2 text-sm"><li>安全帽识别</li><li>温湿度监测</li><li>离线大模型</li></ul></div>
+    <div><h4 class="text-white mb-4">联系方式</h4><p class="text-sm"><i class="fas fa-phone-alt mr-2"></i> 13839881612</p></div>
+  </div>
+  <div class="border-t border-gray-700 mt-8 pt-6 text-center text-xs">© 2026 智感工厂 · 智感物联科技有限公司</div>
+</footer>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script src="js/main.js"></script>
+<script>AOS.init({ duration: 800, once: true });</script>
+</body>
+</html>

@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>新闻资讯 · 智感工厂</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    :root { --hw-red: #cf0a2c; }
+    .hw-container { max-width: 1400px; margin: 0 auto; padding: 0 24px; }
+    .btn-primary { background: var(--hw-red); color: white; padding: 12px 32px; border-radius: 30px; font-weight: 500; transition: all 0.3s; border: 1px solid var(--hw-red); display: inline-block; }
+    .btn-primary:hover { background: transparent; color: var(--hw-red); }
+    .nav-link { position: relative; transition: color 0.2s; }
+    .nav-link::after { content: ''; position: absolute; bottom: -6px; left: 0; width: 0; height: 2px; background: var(--hw-red); transition: width 0.3s; }
+    .nav-link:hover::after, .nav-link.active::after { width: 100%; }
+    .nav-link:hover, .nav-link.active { color: var(--hw-red) !important; }
+    .news-card { transition: all 0.3s ease; }
+    .news-card:hover { transform: translateY(-4px); box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
+    .news-card:hover .news-title { color: var(--hw-red); }
+    .tag { display: inline-block; padding: 4px 12px; border-radius: 20px; font-size: 12px; font-weight: 500; }
+    .tag-red { background: rgba(207,10,44,0.1); color: var(--hw-red); }
+    .tag-blue { background: rgba(59,130,246,0.1); color: #3b82f6; }
+    .tag-green { background: rgba(34,197,94,0.1); color: #22c55e; }
+  </style>
+</head>
+<body class="bg-white">
+<!-- 导航栏 -->
+<header id="navbar" class="fixed top-0 w-full z-50 bg-white/95 backdrop-blur-sm shadow-sm">
+  <div class="hw-container flex justify-between items-center py-4">
+    <a href="index.html" class="flex items-center gap-2">
+      <img src="images/logo.jpg" class="h-10 rounded">
+      <span class="text-xl font-semibold text-gray-800">智感工厂</span>
+    </a>
+    <nav class="hidden md:flex space-x-8 font-medium text-gray-700">
+      <a href="index.html" class="nav-link">首页</a>
+      <a href="about.html" class="nav-link">关于我们</a>
+      <a href="products.html" class="nav-link">产品服务</a>
+      <a href="news.html" class="nav-link active">新闻资讯</a>
+      <a href="contact.html" class="nav-link">联系我们</a>
+    </nav>
+    <div class="hidden md:block"><a href="contact.html" class="btn-primary text-sm">预约演示</a></div>
+    <button id="menu-btn" class="md:hidden text-2xl text-gray-700"><i class="fas fa-bars"></i></button>
+  </div>
+</header>
+
+<main class="pt-20">
+  <!-- Hero区域 -->
+  <section class="relative bg-gradient-to-br from-gray-900 via-gray-800 to-[#1a1a2e] min-h-[350px] flex items-center overflow-hidden">
+    <div class="absolute inset-0 opacity-20">
+      <div class="absolute top-10 left-10 w-[400px] h-[400px] bg-[#cf0a2c] rounded-full blur-[150px]"></div>
+    </div>
+    <div class="hw-container relative z-10 py-16">
+      <div class="text-center max-w-3xl mx-auto" data-aos="fade-up">
+        <span class="text-[#cf0a2c] font-semibold tracking-wider">NEWS</span>
+        <h1 class="text-5xl font-bold text-white mt-4 mb-4">新闻与动态</h1>
+        <p class="text-xl text-gray-400">了解智感工厂的最新进展与行业动态</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 权威数据展示条 -->
+  <section class="py-12 bg-gradient-to-r from-gray-900 via-[#1a1a2e] to-gray-900">
+    <div class="hw-container">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center" data-aos="fade-up">
+        <div>
+          <div class="text-4xl font-bold text-[#cf0a2c] mb-2">6300万+</div>
+          <div class="text-gray-400 text-sm">中小制造企业</div>
+        </div>
+        <div>
+          <div class="text-4xl font-bold text-[#cf0a2c] mb-2">92%</div>
+          <div class="text-gray-400 text-sm">中小微工厂占比</div>
+        </div>
+        <div>
+          <div class="text-4xl font-bold text-[#cf0a2c] mb-2">&lt;8%</div>
+          <div class="text-gray-400 text-sm">智能化改造率</div>
+        </div>
+        <div>
+          <div class="text-4xl font-bold text-[#cf0a2c] mb-2">80%+</div>
+          <div class="text-gray-400 text-sm">风险降低率</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 行业政策资讯 -->
+  <section class="py-20 bg-gray-50">
+    <div class="hw-container">
+      <div class="text-center mb-12" data-aos="fade-up">
+        <span class="text-[#cf0a2c] font-semibold tracking-wide">POLICY</span>
+        <h2 class="text-4xl font-bold text-gray-900 mt-3">行业政策与资讯</h2>
+        <p class="text-gray-500 mt-4">紧跟政策导向，把握市场机遇</p>
+      </div>
+      
+      <div class="grid md:grid-cols-2 gap-8">
+        <div class="bg-white rounded-2xl p-8 shadow-sm news-card" data-aos="fade-up">
+          <div class="flex items-start gap-4">
+            <div class="w-14 h-14 bg-red-100 rounded-xl flex items-center justify-center text-[#cf0a2c] text-2xl flex-shrink-0">
+              <i class="fas fa-gavel"></i>
+            </div>
+            <div>
+              <span class="tag tag-red mb-2 inline-block">政策利好</span>
+              <h3 class="text-xl font-bold text-gray-900 mb-3">国家安全生产政策持续加码</h3>
+              <p class="text-gray-600 text-sm leading-relaxed">《安全生产法》《"十四五"智能制造发展规划》等政策密集出台，明确要求制造企业实现风险分级管控、隐患实时预警、数据全程可追溯。传统"人盯人"模式已无法满足合规要求，低成本智能监测成为中小工厂转型刚需。</p>
+              <div class="mt-4 text-sm text-gray-400">2026-04-10</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-white rounded-2xl p-8 shadow-sm news-card" data-aos="fade-up" data-aos-delay="100">
+          <div class="flex items-start gap-4">
+            <div class="w-14 h-14 bg-blue-100 rounded-xl flex items-center justify-center text-blue-600 text-2xl flex-shrink-0">
+              <i class="fas fa-chart-line"></i>
+            </div>
+            <div>
+              <span class="tag tag-blue mb-2 inline-block">市场分析</span>
+              <h3 class="text-xl font-bold text-gray-900 mb-3">安全智能化市场空间广阔</h3>
+              <p class="text-gray-600 text-sm leading-relaxed">据CNNIC《从互联网大数据看中小企业发展（2025）》，我国中小企业达6348.7万户，制造业占比超40%。中小微工厂安全智能化改造率不足8%，市场处于蓝海阶段，普惠型工业安全产品具备万亿级市场潜力。</p>
+              <div class="mt-4 text-sm text-gray-400">2026-03-25</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-white rounded-2xl p-8 shadow-sm news-card" data-aos="fade-up" data-aos-delay="200">
+          <div class="flex items-start gap-4">
+            <div class="w-14 h-14 bg-purple-100 rounded-xl flex items-center justify-center text-purple-600 text-2xl flex-shrink-0">
+              <i class="fas fa-microchip"></i>
+            </div>
+            <div>
+              <span class="tag tag-green mb-2 inline-block">技术趋势</span>
+              <h3 class="text-xl font-bold text-gray-900 mb-3">边缘AI成为工业安全主流</h3>
+              <p class="text-gray-600 text-sm leading-relaxed">随着轻量化AI算法成熟，工业安全监测从"云端依赖"转向"边缘优先"。离线AI视觉+物联网传感器融合方案可实现断网不断检、本地推理、秒级报警，完美适配老旧厂区、地下车间等无网/弱网场景。</p>
+              <div class="mt-4 text-sm text-gray-400">2026-03-15</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-white rounded-2xl p-8 shadow-sm news-card" data-aos="fade-up" data-aos-delay="300">
+          <div class="flex items-start gap-4">
+            <div class="w-14 h-14 bg-green-100 rounded-xl flex items-center justify-center text-green-600 text-2xl flex-shrink-0">
+              <i class="fas fa-shield-alt"></i>
+            </div>
+            <div>
+              <span class="tag tag-blue mb-2 inline-block">行业数据</span>
+              <h3 class="text-xl font-bold text-gray-900 mb-3">智能监测成关键降险手段</h3>
+              <p class="text-gray-600 text-sm leading-relaxed">据国家应急管理部2025年机械行业安全事故分析，未佩戴劳保用品、违规闯入危险区域、环境参数异常是主要诱因。AI视觉实时识别+环境联动监测可有效降低80%以上人为违规风险，成为企业安全管理标配。</p>
+              <div class="mt-4 text-sm text-gray-400">2026-03-08</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 成功案例展示 -->
+  <section class="py-20 bg-white">
+    <div class="hw-container">
+      <div class="text-center mb-12" data-aos="fade-up">
+        <span class="text-[#cf0a2c] font-semibold tracking-wide">CASES</span>
+        <h2 class="text-4xl font-bold text-gray-900 mt-3">企业应用案例</h2>
+        <p class="text-gray-500 mt-4">真实场景验证，效果可量化</p>
+      </div>
+      
+      <!-- 案例1 -->
+      <div class="mb-8 bg-gradient-to-br from-gray-50 to-white rounded-3xl p-8 md:p-12 border border-gray-100" data-aos="fade-up">
+        <div class="grid md:grid-cols-2 gap-8 items-center">
+          <div>
+            <div class="flex items-center gap-3 mb-4">
+              <span class="px-3 py-1 bg-[#cf0a2c] text-white text-sm rounded-full">电子组装</span>
+              <span class="text-gray-400 text-sm"><i class="far fa-calendar mr-1"></i>2026-03</span>
+            </div>
+            <h3 class="text-2xl font-bold text-gray-900 mb-4">恩科电子科技有限公司：低成本安全合规落地</h3>
+            <p class="text-gray-600 mb-6 leading-relaxed">车间人员密集、温湿度敏感、需规范佩戴安全帽。预算有限、网络不稳定、人工巡检漏检率高。</p>
+            <div class="grid grid-cols-3 gap-4 mb-6">
+              <div class="text-center p-3 bg-white rounded-xl shadow-sm">
+                <div class="text-[#cf0a2c] font-bold text-xl">96.2%</div>
+                <div class="text-xs text-gray-500">识别准确率</div>
+              </div>
+              <div class="text-center p-3 bg-white rounded-xl shadow-sm">
+                <div class="text-[#cf0a2c] font-bold text-xl">≤0.6s</div>
+                <div class="text-xs text-gray-500">报警延迟</div>
+              </div>
+              <div class="text-center p-3 bg-white rounded-xl shadow-sm">
+                <div class="text-[#cf0a2c] font-bold text-xl">1天</div>
+                <div class="text-xs text-gray-500">部署周期</div>
+              </div>
+            </div>
+            <p class="text-sm text-gray-600"><i class="fas fa-check-circle text-green-500 mr-2"></i>断网可独立运行7天，网络恢复自动同步数据；自动生成安全台账与EDA分析报告，顺利通过3次安监检查。</p>
+          </div>
+          <div class="relative">
+            <img src="images/传感器1.png" alt="案例配图" class="rounded-2xl shadow-xl w-full">
+            <div class="absolute -bottom-4 -right-4 bg-[#cf0a2c] text-white p-4 rounded-xl shadow-lg">
+              <div class="text-sm">违规事件下降</div>
+              <div class="text-2xl font-bold">67%</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 案例2&3 双栏 -->
+      <div class="grid md:grid-cols-2 gap-8 mb-8">
+        <div class="bg-gray-50 rounded-2xl p-8 news-card" data-aos="fade-up">
+          <div class="flex items-center gap-3 mb-4">
+            <span class="px-3 py-1 bg-blue-600 text-white text-sm rounded-full">机械加工</span>
+            <span class="text-gray-400 text-sm">2026-02</span>
+          </div>
+          <h3 class="text-xl font-bold text-gray-900 mb-3">云启机械加工：高危场景24小时智能巡检</h3>
+          <p class="text-gray-600 text-sm mb-4">金属切削、油污环境、危险设备多。7×24小时不间断监测，替代2名专职巡检人员。</p>
+          <div class="flex gap-4 mb-4">
+            <div class="flex-1 text-center p-3 bg-white rounded-xl">
+              <div class="text-blue-600 font-bold">95.7%</div>
+              <div class="text-xs text-gray-500">识别准确率</div>
+            </div>
+            <div class="flex-1 text-center p-3 bg-white rounded-xl">
+              <div class="text-blue-600 font-bold">75%</div>
+              <div class="text-xs text-gray-500">违规下降</div>
+            </div>
+          </div>
+          <p class="text-sm text-gray-600"><i class="fas fa-check-circle text-green-500 mr-2"></i>违规自动抓拍存档，事故溯源清晰，安全管理成本降低60%</p>
+        </div>
+
+        <div class="bg-gray-50 rounded-2xl p-8 news-card" data-aos="fade-up" data-aos-delay="100">
+          <div class="flex items-center gap-3 mb-4">
+            <span class="px-3 py-1 bg-purple-600 text-white text-sm rounded-full">仓储物流</span>
+            <span class="text-gray-400 text-sm">2026-01</span>
+          </div>
+          <h3 class="text-xl font-bold text-gray-900 mb-3">安拓物流产业园：多厂区集中化安全管控</h3>
+          <p class="text-gray-600 text-sm mb-4">厂区分散、管理半径大。多工厂管理版，双角色权限+全局数据看板。</p>
+          <div class="flex gap-4 mb-4">
+            <div class="flex-1 text-center p-3 bg-white rounded-xl">
+              <div class="text-purple-600 font-bold">5个</div>
+              <div class="text-xs text-gray-500">统一管控</div>
+            </div>
+            <div class="flex-1 text-center p-3 bg-white rounded-xl">
+              <div class="text-purple-600 font-bold">0起</div>
+              <div class="text-xs text-gray-500">安全事故</div>
+            </div>
+          </div>
+          <p class="text-sm text-gray-600"><i class="fas fa-check-circle text-green-500 mr-2"></i>园区通过安全生产标准化评审，误报率下降60%</p>
+        </div>
+      </div>
+
+      <!-- 案例4 -->
+      <div class="bg-gradient-to-br from-green-50 to-white rounded-3xl p-8 md:p-12 border border-green-100" data-aos="fade-up">
+        <div class="grid md:grid-cols-2 gap-8 items-center">
+          <div class="order-2 md:order-1 relative">
+            <img src="images/传感器2.png" alt="案例配图" class="rounded-2xl shadow-xl w-full">
+            <div class="absolute -bottom-4 -left-4 bg-green-600 text-white p-4 rounded-xl shadow-lg">
+              <div class="text-sm">数据采集率</div>
+              <div class="text-2xl font-bold">99.7%</div>
+            </div>
+          </div>
+          <div class="order-1 md:order-2">
+            <div class="flex items-center gap-3 mb-4">
+              <span class="px-3 py-1 bg-green-600 text-white text-sm rounded-full">食品加工</span>
+              <span class="text-gray-400 text-sm"><i class="far fa-calendar mr-1"></i>2025-12</span>
+            </div>
+            <h3 class="text-2xl font-bold text-gray-900 mb-4">山禾食品生产：环境与行为双重安全保障</h3>
+            <p class="text-gray-600 mb-6 leading-relaxed">温湿度影响产品质量、人员需规范穿戴、卫生与安全双重要求。环境数据无记录、合规材料整理繁琐。</p>
+            <div class="grid grid-cols-3 gap-4 mb-6">
+              <div class="text-center p-3 bg-white rounded-xl shadow-sm">
+                <div class="text-green-600 font-bold text-xl">99.7%</div>
+                <div class="text-xs text-gray-500">数据稳定率</div>
+              </div>
+              <div class="text-center p-3 bg-white rounded-xl shadow-sm">
+                <div class="text-green-600 font-bold text-xl">100%</div>
+                <div class="text-xs text-gray-500">生产合规率</div>
+              </div>
+              <div class="text-center p-3 bg-white rounded-xl shadow-sm">
+                <div class="text-green-600 font-bold text-xl">一键</div>
+                <div class="text-xs text-gray-500">数据导出</div>
+              </div>
+            </div>
+            <p class="text-sm text-gray-600"><i class="fas fa-check-circle text-green-500 mr-2"></i>历史数据一键导出，满足食品生产安全核查要求，生产安全与产品品质双重提升</p>
+          </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 公司新闻动态 -->
+  <section class="py-20 bg-gray-50">
+    <div class="hw-container">
+      <div class="text-center mb-12" data-aos="fade-up">
+        <span class="text-[#cf0a2c] font-semibold tracking-wide">NEWS</span>
+        <h2 class="text-4xl font-bold text-gray-900 mt-3 text-center">公司动态</h2>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8">
+        <article class="news-card bg-white rounded-2xl overflow-hidden border border-gray-100" data-aos="fade-up">
+          <div class="bg-gray-50 p-6 flex items-center justify-center">
+            <img src="images/摄像头.png" alt="新闻" class="max-h-40 w-auto object-contain hover:scale-105 transition duration-500">
+          </div>
+          <div class="p-6">
+            <span class="tag tag-red">产品落地</span>
+            <h4 class="news-title font-bold text-lg text-gray-900 mt-3 mb-2 transition">智感工厂落地海泰园区，普惠AI安全系统守护生产</h4>
+            <p class="text-gray-600 text-sm line-clamp-2">为园区内12家中小制造企业提供低成本、离线可用、双模态融合的安全监测服务，助力企业快速完成安全智能化改造...</p>
+            <div class="mt-4 pt-4 border-t border-gray-100 text-sm text-gray-500">
+              2026-04-15 · 阅读 1,258
+            </div>
+          </div>
+        </article>
+
+        <article class="news-card bg-white rounded-2xl overflow-hidden border border-gray-100" data-aos="fade-up" data-aos-delay="100">
+          <div class="bg-gray-50 p-6 flex items-center justify-center">
+            <img src="images/技术路线图.png" alt="技术" class="max-h-40 w-auto object-contain hover:scale-105 transition duration-500">
+          </div>
+          <div class="p-6">
+            <span class="tag tag-green">技术创新</span>
+            <h4 class="news-title font-bold text-lg text-gray-900 mt-3 mb-2 transition">突破离线监测瓶颈！边缘AI大模型赋能工业安全</h4>
+            <p class="text-gray-600 text-sm line-clamp-2">在MaixCAM边缘设备上运行TinyLlama轻量级大语言模型，成为国内少数支持断网场景下自然语言交互的工厂安全方案...</p>
+            <div class="mt-4 pt-4 border-t border-gray-100 text-sm text-gray-500">
+              2026-03-28 · 阅读 986
+            </div>
+          </div>
+        </article>
+
+        <article class="news-card bg-white rounded-2xl overflow-hidden border border-gray-100" data-aos="fade-up" data-aos-delay="200">
+          <div class="bg-gray-50 p-6 flex items-center justify-center">
+            <img src="images/logo.jpg" alt="社会责任" class="max-h-40 w-auto object-contain hover:scale-105 transition duration-500">
+          </div>
+          <div class="p-6">
+            <span class="tag tag-blue">社会责任</span>
+            <h4 class="news-title font-bold text-lg text-gray-900 mt-3 mb-2 transition">科技向善！智感工厂用物联网技术守护千万工人</h4>
+            <p class="text-gray-600 text-sm line-clamp-2">始终坚持"技术下沉、服务基层"理念，将AI视觉与物联网技术应用到最需要安全保障的小微车间、偏远厂区...</p>
+            <div class="mt-4 pt-4 border-t border-gray-100 text-sm text-gray-500">
+              2026-03-10 · 阅读 2,104
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <!-- 加载更多 -->
+      <div class="text-center mt-12" data-aos="fade-up">
+        <button class="px-8 py-3 border-2 border-gray-200 rounded-full font-medium text-gray-600 hover:border-[#cf0a2c] hover:text-[#cf0a2c] transition">
+          加载更多动态
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- 订阅区域 -->
+  <section class="py-16 bg-gradient-to-br from-gray-900 via-gray-800 to-[#1a1a2e]">
+    <div class="hw-container">
+      <div class="max-w-2xl mx-auto text-center" data-aos="fade-up">
+        <h2 class="text-3xl font-bold text-white mb-4">订阅最新动态</h2>
+        <p class="text-gray-400 mb-8">第一时间获取产品更新、行业资讯与成功案例</p>
+        <form class="flex flex-col sm:flex-row gap-4">
+          <input type="email" placeholder="请输入您的邮箱" class="flex-1 px-6 py-4 rounded-full bg-white/10 border border-white/20 text-white placeholder-gray-400 focus:outline-none focus:border-[#cf0a2c]">
+          <button type="submit" class="btn-primary px-8 py-4">立即订阅</button>
+        </form>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- 页脚 -->
+<footer class="bg-gray-900 text-gray-300 py-12">
+  <div class="hw-container grid grid-cols-1 md:grid-cols-4 gap-8">
+    <div>
+      <div class="flex items-center gap-2 mb-4">
+        <img src="images/logo.jpg" class="h-8 rounded">
+        <span class="text-white font-semibold text-lg">智感工厂</span>
+      </div>
+      <p class="text-sm">守护每一位劳动者的安全</p>
+    </div>
+    <div>
+      <h4 class="text-white font-medium mb-4">快速链接</h4>
+      <ul class="space-y-2 text-sm">
+        <li><a href="about.html" class="hover:text-white">关于我们</a></li>
+        <li><a href="products.html" class="hover:text-white">产品服务</a></li>
+        <li><a href="news.html" class="hover:text-white">新闻资讯</a></li>
+        <li><a href="contact.html" class="hover:text-white">联系我们</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4 class="text-white font-medium mb-4">产品</h4>
+      <ul class="space-y-2 text-sm">
+        <li>安全帽/反光衣识别</li>
+        <li>温湿度监测</li>
+        <li>边缘离线大模型</li>
+        <li>多工厂管理平台</li>
+      </ul>
+    </div>
+    <div>
+      <h4 class="text-white font-medium mb-4">联系方式</h4>
+      <p class="text-sm"><i class="fas fa-phone-alt mr-2"></i> 13839881612</p>
+      <p class="text-sm mt-2"><i class="fas fa-envelope mr-2"></i> contact@zhigan.com</p>
+    </div>
+  </div>
+  <div class="border-t border-gray-700 mt-8 pt-6 text-center text-xs">
+    2026 智感工厂 · 智感物联科技有限公司
+  </div>
+</footer>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script src="js/main.js"></script>
+<script>AOS.init();</script>
+</body>
+</html>
