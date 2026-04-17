@@ -33,7 +33,18 @@
       <span class="text-xl font-semibold text-gray-800">智感工厂</span>
     </a>
     <nav class="hidden md:flex items-center space-x-8 font-medium text-gray-700">
-      <a href="index.html" class="nav-link">首页</a>
+      <div class="relative group">
+        <a href="index.html" class="nav-link">首页</a>
+        <div class="absolute top-full left-0 pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+          <div class="bg-white rounded-lg shadow-xl border border-gray-100 py-2 min-w-[180px]">
+            <a href="company.html" class="block px-4 py-2.5 text-sm text-gray-700 hover:bg-red-50 hover:text-[#cf0a2c] transition-colors">公司简介</a>
+            <a href="vision.html" class="block px-4 py-2.5 text-sm text-gray-700 hover:bg-red-50 hover:text-[#cf0a2c] transition-colors">愿景及使命</a>
+            <a href="history.html" class="block px-4 py-2.5 text-sm text-gray-700 hover:bg-red-50 hover:text-[#cf0a2c] transition-colors">发展历程</a>
+            <a href="architecture.html" class="block px-4 py-2.5 text-sm text-gray-700 hover:bg-red-50 hover:text-[#cf0a2c] transition-colors">业务架构</a>
+            <a href="team.html" class="block px-4 py-2.5 text-sm text-gray-700 hover:bg-red-50 hover:text-[#cf0a2c] transition-colors">团队介绍</a>
+          </div>
+        </div>
+      </div>
       <a href="about.html" class="nav-link active">关于我们</a>
       <a href="products.html" class="nav-link">产品服务</a>
       <a href="news.html" class="nav-link">新闻资讯</a>
@@ -44,7 +55,16 @@
   </div>
   <div id="mobile-menu" class="md:hidden hidden bg-white border-t border-gray-100 pb-4 px-6">
     <nav class="flex flex-col space-y-3 pt-3">
-      <a href="index.html" class="py-2 nav-link">首页</a>
+      <div class="py-2">
+        <a href="index.html" class="nav-link">首页</a>
+        <div class="pl-4 mt-2 space-y-2">
+          <a href="company.html" class="block py-1 text-sm text-gray-600">公司简介</a>
+          <a href="vision.html" class="block py-1 text-sm text-gray-600">愿景及使命</a>
+          <a href="history.html" class="block py-1 text-sm text-gray-600">发展历程</a>
+          <a href="architecture.html" class="block py-1 text-sm text-gray-600">业务架构</a>
+          <a href="team.html" class="block py-1 text-sm text-gray-600">团队介绍</a>
+        </div>
+      </div>
       <a href="about.html" class="py-2 nav-link active">关于我们</a>
       <a href="products.html" class="py-2 nav-link">产品服务</a>
       <a href="news.html" class="py-2 nav-link">新闻资讯</a>

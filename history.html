@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>发展历程 · 智感工厂</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    :root { --hw-red: #cf0a2c; }
+    .hw-container { max-width: 1400px; margin: 0 auto; padding: 0 24px; }
+    .btn-primary { background: var(--hw-red); color: white; padding: 12px 32px; border-radius: 30px; font-weight: 500; transition: all 0.3s; border: 1px solid var(--hw-red); display: inline-block; }
+    .btn-primary:hover { background: transparent; color: var(--hw-red); }
+    .nav-link { position: relative; transition: color 0.2s; }
+    .nav-link::after { content: ''; position: absolute; bottom: -6px; left: 0; width: 0; height: 2px; background: var(--hw-red); transition: width 0.3s; }
+    .nav-link:hover::after, .nav-link.active::after { width: 100%; }
+    .nav-link:hover, .nav-link.active { color: var(--hw-red) !important; }
+    .timeline-item { position: relative; padding-left: 30px; border-left: 2px solid #e5e7eb; }
+    .timeline-item::before { content: ''; position: absolute; left: -6px; top: 6px; width: 10px; height: 10px; border-radius: 50%; background: var(--hw-red); }
+    .timeline-item:last-child { border-left-color: transparent; }
+  </style>
+</head>
+<body class="bg-white">
+
+<!-- 导航栏 -->
+<header id="navbar" class="fixed top-0 left-0 w-full z-50 bg-white/95 backdrop-blur-sm shadow-sm">
+  <div class="hw-container flex justify-between items-center py-4">
+    <a href="index.html" class="flex items-center gap-2">
+      <img src="images/logo.jpg" alt="智感工厂" class="h-10 w-auto object-contain rounded">
+      <span class="text-xl font-semibold text-gray-800">智感工厂</span>
+    </a>
+    <nav class="hidden md:flex items-center space-x-8 font-medium text-gray-700">
+      <div class="relative group">
+        <a href="index.html" class="nav-link">首页</a>
+        <div class="absolute top-full left-0 pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+          <div class="bg-white rounded-lg shadow-xl border border-gray-100 py-2 min-w-[180px]">
+            <a href="company.html" class="block px-4 py-2.5 text-sm text-gray-700 hover:bg-red-50 hover:text-[#cf0a2c] transition-colors">公司简介</a>
+            <a href="vision.html" class="block px-4 py-2.5 text-sm text-gray-700 hover:bg-red-50 hover:text-[#cf0a2c] transition-colors">愿景及使命</a>
+            <a href="history.html" class="block px-4 py-2.5 text-sm text-gray-700 hover:bg-red-50 hover:text-[#cf0a2c] transition-colors">发展历程</a>
+            <a href="architecture.html" class="block px-4 py-2.5 text-sm text-gray-700 hover:bg-red-50 hover:text-[#cf0a2c] transition-colors">业务架构</a>
+            <a href="team.html" class="block px-4 py-2.5 text-sm text-gray-700 hover:bg-red-50 hover:text-[#cf0a2c] transition-colors">团队介绍</a>
+          </div>
+        </div>
+      </div>
+      <a href="about.html" class="nav-link">关于我们</a>
+      <a href="products.html" class="nav-link">产品服务</a>
+      <a href="news.html" class="nav-link">新闻资讯</a>
+      <a href="contact.html" class="nav-link">联系我们</a>
+    </nav>
+    <div class="hidden md:block"><a href="contact.html" class="btn-primary text-sm">预约演示</a></div>
+    <button id="menu-btn" class="md:hidden text-2xl"><i class="fas fa-bars"></i></button>
+  </div>
+  <div id="mobile-menu" class="md:hidden hidden bg-white border-t border-gray-100 pb-4 px-6">
+    <nav class="flex flex-col space-y-3 pt-3">
+      <div class="py-2 border-b border-gray-100">
+        <a href="index.html" class="nav-link">首页</a>
+        <div class="pl-4 mt-2 space-y-2">
+          <a href="company.html" class="block py-1 text-sm text-gray-600">公司简介</a>
+          <a href="vision.html" class="block py-1 text-sm text-gray-600">愿景及使命</a>
+          <a href="history.html" class="block py-1 text-sm text-gray-600">发展历程</a>
+          <a href="architecture.html" class="block py-1 text-sm text-gray-600">业务架构</a>
+          <a href="team.html" class="block py-1 text-sm text-gray-600">团队介绍</a>
+        </div>
+      </div>
+      <a href="about.html" class="py-2 nav-link">关于我们</a>
+      <a href="products.html" class="py-2 nav-link">产品服务</a>
+      <a href="news.html" class="py-2 nav-link">新闻资讯</a>
+      <a href="contact.html" class="py-2 nav-link">联系我们</a>
+    </nav>
+  </div>
+</header>
+
+<main class="pt-20">
+  <!-- Hero区域 -->
+  <section class="relative bg-gradient-to-br from-gray-900 via-gray-800 to-[#1a1a2e] min-h-[400px] flex items-center overflow-hidden">
+    <div class="absolute inset-0 opacity-20">
+      <div class="absolute top-0 right-0 w-[600px] h-[600px] bg-[#cf0a2c] rounded-full blur-[200px]"></div>
+    </div>
+    <div class="hw-container relative z-10 py-20">
+      <span class="text-[#cf0a2c] font-semibold tracking-wider text-sm" data-aos="fade-up">OUR JOURNEY</span>
+      <h1 class="text-4xl md:text-5xl font-bold text-white mt-4 mb-6" data-aos="fade-up" data-aos-delay="100">发展历程</h1>
+      <p class="text-xl text-gray-300 max-w-3xl" data-aos="fade-up" data-aos-delay="200">从想法到落地，每一步都坚定向前</p>
+    </div>
+  </section>
+
+  <!-- 发展历程内容 -->
+  <section class="py-20 bg-white">
+    <div class="hw-container max-w-4xl">
+
+      <!-- 时间轴 -->
+      <div class="max-w-4xl mx-auto">
+        <div class="timeline-item pb-12" data-aos="fade-up">
+          <div class="flex flex-col md:flex-row md:items-start gap-4 md:gap-8">
+            <div class="md:w-32 shrink-0">
+              <div class="text-sm text-[#cf0a2c] font-semibold">2024.09</div>
+              <div class="text-gray-400 text-sm">项目启动</div>
+            </div>
+            <div class="bg-gray-50 rounded-2xl p-6 flex-1">
+              <h3 class="text-xl font-bold text-gray-900 mb-3">需求调研与团队组建</h3>
+              <p class="text-gray-600 leading-relaxed">
+                团队深入本地工业园区调研，走访多家中小工厂，发现安全帽佩戴不规范、危险区域闯入、温湿度异常等安全隐患普遍存在，但现有商用解决方案价格高昂、部署复杂。由此萌生了打造一款低成本、易部署的普惠型工业安全监测系统的想法。
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="timeline-item pb-12" data-aos="fade-up" data-aos-delay="100">
+          <div class="flex flex-col md:flex-row md:items-start gap-4 md:gap-8">
+            <div class="md:w-32 shrink-0">
+              <div class="text-sm text-[#cf0a2c] font-semibold">2025.03</div>
+              <div class="text-gray-400 text-sm">技术攻关</div>
+            </div>
+            <div class="bg-gray-50 rounded-2xl p-6 flex-1">
+              <h3 class="text-xl font-bold text-gray-900 mb-3">核心模块联调成功</h3>
+              <p class="text-gray-600 leading-relaxed">
+                完成STC51单片机与MaixCAM边缘AI设备的首次联调，实现温湿度数据与AI视觉数据的初步融合。攻克了串口通信、数据解析、TTS语音播报等技术难点，系统雏形初现。
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="timeline-item pb-12" data-aos="fade-up" data-aos-delay="200">
+          <div class="flex flex-col md:flex-row md:items-start gap-4 md:gap-8">
+            <div class="md:w-32 shrink-0">
+              <div class="text-sm text-[#cf0a2c] font-semibold">2025.09</div>
+              <div class="text-gray-400 text-sm">产品成型</div>
+            </div>
+            <div class="bg-gray-50 rounded-2xl p-6 flex-1">
+              <h3 class="text-xl font-bold text-gray-900 mb-3">端到端系统打通</h3>
+              <p class="text-gray-600 leading-relaxed">
+                完成前后端开发，实现FastAPI云端服务、Web管理后台、微信小程序的完整数据链路。系统通过72小时连续稳定性测试，安全帽识别准确率达到96.2%，温湿度采集准确率99.7%。
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="timeline-item pb-12" data-aos="fade-up" data-aos-delay="300">
+          <div class="flex flex-col md:flex-row md:items-start gap-4 md:gap-8">
+            <div class="md:w-32 shrink-0">
+              <div class="text-sm text-[#cf0a2c] font-semibold">2026.01</div>
+              <div class="text-gray-400 text-sm">试点验证</div>
+            </div>
+            <div class="bg-gray-50 rounded-2xl p-6 flex-1">
+              <h3 class="text-xl font-bold text-gray-900 mb-3">首批试点工厂上线</h3>
+              <p class="text-gray-600 leading-relaxed">
+                在电子组装、机械加工、仓储物流等不同行业完成首批15家试点工厂部署。试点数据显示：违规事件平均下降67%，安全管理成本降低60%，顺利通过3次安监检查，获企业一致好评。
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="timeline-item" data-aos="fade-up" data-aos-delay="400">
+          <div class="flex flex-col md:flex-row md:items-start gap-4 md:gap-8">
+            <div class="md:w-32 shrink-0">
+              <div class="text-sm text-[#cf0a2c] font-semibold">2026.04</div>
+              <div class="text-gray-400 text-sm">规模推广</div>
+            </div>
+            <div class="bg-gray-50 rounded-2xl p-6 flex-1">
+              <h3 class="text-xl font-bold text-gray-900 mb-3">商业模式验证与市场拓展</h3>
+              <p class="text-gray-600 leading-relaxed">
+                确立"硬件销售+软件订阅+增值服务"三层盈利模式，与3家本地安防集成商达成合作意向。预计2026年底完成100家工厂签约，实现项目从验证期到成长期的跨越。
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 里程碑数据 -->
+      <div class="mt-16 grid md:grid-cols-4 gap-6" data-aos="fade-up">
+        <div class="bg-gradient-to-br from-red-50 to-white rounded-2xl p-6 text-center border border-red-100">
+          <div class="text-4xl font-bold text-[#cf0a2c] mb-2">18个月</div>
+          <div class="text-gray-600 text-sm">项目孵化周期</div>
+        </div>
+        <div class="bg-gradient-to-br from-blue-50 to-white rounded-2xl p-6 text-center border border-blue-100">
+          <div class="text-4xl font-bold text-blue-600 mb-2">15家</div>
+          <div class="text-gray-600 text-sm">试点工厂</div>
+        </div>
+        <div class="bg-gradient-to-br from-green-50 to-white rounded-2xl p-6 text-center border border-green-100">
+          <div class="text-4xl font-bold text-green-600 mb-2">5项</div>
+          <div class="text-gray-600 text-sm">软件著作权</div>
+        </div>
+        <div class="bg-gradient-to-br from-purple-50 to-white rounded-2xl p-6 text-center border border-purple-100">
+          <div class="text-4xl font-bold text-purple-600 mb-2">67%</div>
+          <div class="text-gray-600 text-sm">违规下降率</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+</main>
+
+<!-- Footer -->
+<footer class="bg-gray-900 text-white py-12 mt-20">
+  <div class="hw-container">
+    <div class="grid md:grid-cols-4 gap-8 mb-8">
+      <div>
+        <div class="flex items-center gap-2 mb-4">
+          <img src="images/logo.jpg" alt="智感工厂" class="h-8 w-auto rounded">
+          <span class="text-lg font-semibold">智感工厂</span>
+        </div>
+        <p class="text-gray-400 text-sm">用AI守护每一位劳动者的生命安全</p>
+      </div>
+      <div>
+        <h4 class="text-white font-medium mb-4">产品服务</h4>
+        <ul class="space-y-2 text-sm text-gray-400">
+          <li>AI视觉监测</li>
+          <li>温湿度采集</li>
+          <li>离线大模型</li>
+          <li>双模态融合</li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="text-white font-medium mb-4">关于我们</h4>
+        <ul class="space-y-2 text-sm text-gray-400">
+          <li>公司简介</li>
+          <li>愿景使命</li>
+          <li>团队介绍</li>
+          <li>发展历程</li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="text-white font-medium mb-4">联系方式</h4>
+        <p class="text-sm text-gray-400">contact@zhigan.com</p>
+      </div>
+    </div>
+    <div class="border-t border-gray-800 pt-8 text-center text-sm text-gray-500">
+      <p>&copy; 2026 智感工厂. 保留所有权利.</p>
+    </div>
+  </div>
+</footer>
+
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script src="js/main.js"></script>
+<script>AOS.init();</script>
+
+</body>
+</html>
